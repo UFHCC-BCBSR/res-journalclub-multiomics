@@ -1,0 +1,367 @@
+---
+title: "Undisclosed, Unmet and Neglected Challenges in Multi-Omics Studies"
+subtitle: "Journal Club Introduction - Multi-Omics Integration Series"
+author: "Tarazona, Arzalluz-Luque & Conesa (2021)"
+date: "2026-01-29"
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    preview-links: auto
+    embed-resources: true
+---
+
+## Overview {.smaller}
+
+**Original Publication:** Nature Computational Science (June 2021)
+
+**Key Points:**
+- Multi-omics approaches have become routine in genomics research
+- Multiple technical and analytical challenges remain poorly addressed
+- Single-cell technologies creating new opportunities and challenges
+
+**⚠️ UPDATE NEEDED:** This 2021 review predates major advances in:
+- Spatial omics (spatial transcriptomics, spatial proteomics)
+- New multimodal single-cell technologies (10x Multiome, TEA-seq, DOGMA-seq)
+- Foundation models and AI/ML approaches (2023-2026)
+
+::: {.notes}
+This is a perspective paper from 2021 that discusses often-overlooked challenges in multi-omics. Important to note this is now 5 years old and predates the explosion of spatial omics technologies and newer AI approaches. We'll discuss what has changed since publication.
+:::
+
+---
+
+## Multi-Omics Study Goals
+
+![](figure1.png){width="100%"}
+
+::: {.notes}
+Figure 1 illustrates two primary goals of multi-omics studies:
+
+**Sample-focused analyses:**
+- Unsupervised clustering to discover sample groupings (e.g., cancer subtypes)
+- Supervised classification for outcome prediction
+- Biomarker identification from features driving these groupings
+
+**Feature-focused analyses:**
+- Identifying relationships between molecular features across omics layers
+- Building multilayered regulatory networks
+- Understanding mechanisms of gene regulation
+
+The figure shows how diverse data types (genomics, epigenomics, transcriptomics, proteomics, metabolomics, plus imaging and clinical data) can be integrated. Note that in 2026, we would also include spatial information and additional modalities not shown here.
+:::
+
+---
+
+## Challenge 1: Heterogeneity Across Omics {.smaller}
+
+### Different Technologies Have Different Properties
+
+![](figure3.png){width="90%"}
+
+**Key Issues:**
+- Varying signal-to-noise ratios across platforms
+- Different numbers of detectable features
+- Differential coverage of molecular space
+- Unequal statistical power
+
+**⚠️ UPDATE:** Newer technologies (Olink, SomaScan for proteomics, spatial platforms) have changed these dynamics
+
+::: {.notes}
+Figure 3 uses the STATegra dataset to demonstrate heterogeneity across omics:
+
+**Panel a (Signal-to-noise):** Shows that different technologies have vastly different precision levels. RNA-seq has high signal and low noise, while proteomics has lower signal and higher noise.
+
+**Panel b (Feature detection):** Massive differences in numbers of detected features - RNA-seq detects ~10,000 features while metabolomics only ~4,000.
+
+**Panel c (Coverage):** Different methods capture different fractions of the feature space. Some technologies are inherently biased (e.g., proteomics favors abundant proteins).
+
+**Panel d (Statistical power):** These differences result in very different statistical power curves - RNA-seq reaches high power with fewer samples than proteomics or metabolomics.
+
+**Clinical Impact:** This means a lack of detected association might reflect technical limitations rather than biological truth. When studying gene-protein relationships, proteomics limitations constrain the analysis.
+
+**UPDATE NEEDED:** Since 2021, proteomics has improved dramatically with technologies like Olink and SomaScan offering better coverage and precision.
+:::
+
+---
+
+## Challenge 2: Missing Value Problem {.smaller}
+
+**Three Types of Missing Data:**
+
+1. **Technical failures:** Features not measured in some samples
+   - Common in proteomics/metabolomics
+   - Addressable by imputation
+
+2. **Platform limitations:** Some features inherently unmeasurable
+   - Long transcripts in RNA-seq
+   - Repetitive sequences in short-read DNA-seq
+   - Requires alternative technologies
+
+3. **Incomplete sample coverage:** Not all omics measured for all samples
+   - Common in large cohorts
+   - Problematic for methods requiring complete data
+
+**Critical Issue:** Imputation creates data dependence that violates statistical assumptions
+
+::: {.notes}
+Missing values are perhaps the most disruptive problem in multi-omics integration. 
+
+**The Cohort Problem:** In clinical studies, not every patient will have all omics types collected. The overlap can be quite small. This prevents use of many powerful integration methods.
+
+**The Imputation Paradox:** Methods like MOFA and MultiBaC can impute missing samples, but this creates a statistical trap. If you use DNA methylation to impute gene expression, you can't then study methylation-expression correlations because you've made them dependent!
+
+**Overlooked Issue:** The field treats imputation as "just preprocessing" but doesn't verify that downstream statistical assumptions still hold. Sensitivity analyses are rarely performed.
+
+**For Cancer Studies:** This is especially problematic when trying to integrate TCGA data (good genomics/transcriptomics) with proteomics (only subset of samples) and metabolomics (even smaller subset).
+:::
+
+---
+
+## Challenge 3: Biological Interpretation {.smaller}
+
+**Current Approaches:**
+- Functional enrichment analyses (independent or combined)
+- Pathway mapping (limited by existing models)
+- Network visualizations (often too complex)
+
+**Limitations:**
+- Difficult to represent multiple omics on pathway maps
+- Data-driven networks become unwieldy
+- Static representations vs. dynamic mathematical models
+- Lack of interactive, queryable systems models
+
+**⚠️ UPDATE:** Knowledge graphs and graph neural networks (2023-2026) offer new solutions
+
+::: {.notes}
+This is perhaps the most disappointing gap between promise and reality in multi-omics.
+
+**The Promise:** Multi-omics will deliver comprehensive systems biology models showing how regulation flows from DNA → RNA → Protein → Metabolite → Phenotype.
+
+**The Reality:** Most studies just identify biomarkers and run pathway enrichment on each omics layer separately.
+
+**Visualization Problems:** 
+- Pathway databases (KEGG, Reactome) aren't flexible enough for novel discoveries
+- Cytoscape networks with thousands of nodes and edges are impossible to interpret
+- Most visualizations are static images, not queryable models
+
+**What's Missing:** We need computational tools that combine:
+1. Mathematical formulation of multi-layered regulation
+2. Statistical modeling frameworks
+3. Interactive visualization allowing both high-level overview and detailed mechanistic exploration
+
+**UPDATE:** Neo4j graph databases and new graph neural network approaches (post-2021) are promising but still not widely adopted. Knowledge graphs are improving this space.
+:::
+
+---
+
+## Challenge 4: Data Annotation & Sharing {.smaller}
+
+**The FAIR Problem:** Finding and retrieving multi-omics datasets is difficult
+
+- Data scattered across omics-specific repositories (SRA, dbGAP, MetaboLights, ProteomeXchange)
+- Weak linking between related datasets
+- Manual, cumbersome sample-level matching required
+- **No standard for "minimal information about a multi-omics experiment"**
+
+**Large Projects** (TCGA, GTEx, ENCODE): Custom portals with good metadata
+**Small Projects:** Poor integration across repositories
+
+**⚠️ UPDATE:** NIH Data Commons, NCI Cancer Research Data Commons (since 2021) improving this
+
+::: {.notes}
+This is a practical nightmare that affects data reuse and reproducibility.
+
+**The Current State:** If a paper used RNA-seq (in SRA), proteomics (in ProteomeXchange), and metabolomics (in MetaboLights), you have to:
+1. Find each dataset separately
+2. Manually determine which samples correspond across platforms
+3. Hope the metadata is consistent
+4. Often it's impossible to reconstruct the multi-omics structure
+
+**The FAIR Principles:** Data should be Findable, Accessible, Interoperable, and Reusable - but multi-omics data rarely meets these standards.
+
+**What's Needed:** 
+- Unified metadata standards for multi-omics experiments
+- Cross-repository linking at the sample level
+- Better use of data commons and federated query systems
+
+**Good News:** Since this paper, NIH has invested heavily in data commons infrastructure. The NCI Cancer Research Data Commons and other initiatives are improving this situation for cancer research specifically.
+:::
+
+---
+
+## Challenge 5: Computational Performance
+
+![](figure2.png){width="100%"}
+
+::: {.notes}
+Figure 2 summarizes all major challenges and potential solutions across the multi-omics workflow:
+
+**Data Collection Phase (Purple):**
+- Challenge: Non-uniform missing data
+- Solutions: Integration-aware imputation methods; missing value-compatible integration methods
+
+**Integrative Analysis Phase (Orange):**
+- Inefficient computation → Cloud/GPU migration
+- Diverse signal/noise → Better experimental design and power-balanced methods
+- Poor interpretation → Multi-omics visualization tools and queryable models
+- Meta-analysis risks → Flexible methods that handle heterogeneity
+
+**Community Distribution Phase (Green):**
+- Distributed storage → Minimal information standards for multi-omics
+- Inconsistent annotation → Common metadata frameworks
+
+**Scalability Concerns:**
+- Growing dataset sizes (clinical cohorts, single-cell data)
+- Need for cloud infrastructure and GPU computing
+- Parallelization challenges differ across omics types
+
+**UPDATE:** Since 2021, cloud computing has become standard, GPUs are more accessible, and tools are better optimized for large-scale data. However, single-cell multi-omics creates even larger computational challenges.
+:::
+
+---
+
+## Single-Cell Multi-Omics: Future & Challenges {.smaller}
+
+**Opportunities:**
+- Cell-type-specific regulatory models
+- Parallel methods measure multiple omics from same cell
+- Tumor heterogeneity and tissue specialization studies
+
+**Current Technologies:**
+- scRNA-seq + protein (CITE-seq, REAP-seq)
+- scRNA-seq + chromatin accessibility (10x Multiome)
+- scRNA-seq + methylation
+- CRISPR perturbations, spatial info, lineage tracing
+
+**Challenges Amplified:**
+- Extreme sparsity (especially scATAC-seq)
+- Limited protein capture (targeted panels)
+- Cell-type matching across non-parallel datasets
+- Technology-specific noise handling
+
+**⚠️ MAJOR UPDATE NEEDED:** Spatial omics revolution (2021-2026)
+
+::: {.notes}
+Single-cell multi-omics represents both the greatest opportunity and greatest challenge for the field.
+
+**Why Single-Cell Matters:**
+- Bulk measurements average across cell types, hiding important biology
+- Tumor heterogeneity is critical for cancer progression and therapy resistance
+- Brain, immune system require cell-type-specific understanding
+
+**Technical Progress:** Many new technologies now available, some measuring 3+ modalities simultaneously.
+
+**Key Computational Challenges:**
+1. **Sparsity:** Single cells have dropout - many genes/peaks not detected even if present
+2. **Coverage:** scATAC-seq has very low reads per cell, making chromatin analysis difficult
+3. **Integration:** How do you match cell types between scRNA-seq and scATAC-seq datasets?
+4. **Scale:** Millions of cells × thousands of features = massive datasets
+
+**CRITICAL UPDATE FOR 2026:** This section completely misses the spatial omics revolution:
+- Spatial transcriptomics (10x Visium, MERFISH, Xenium, CosMx)
+- Spatial proteomics (MIBI, IMC, CODEX)
+- Spatial metabolomics
+- These preserve tissue architecture and cell-cell interactions - crucial for cancer microenvironment
+:::
+
+---
+
+## Topics Raised But Not Addressed {.smaller}
+
+**The review identifies but doesn't solve:**
+
+1. **Causal inference:** How to move from correlation to causation in multi-omics networks?
+2. **Temporal dynamics:** How to integrate time-series multi-omics data?
+3. **Batch effects:** Cross-platform normalization and harmonization
+4. **Clinical validation:** Path from biomarker discovery to clinical utility
+5. **Cost-effectiveness:** Which omics provide most value for specific questions?
+6. **Reproducibility crisis:** Validation across cohorts and platforms
+7. **Mechanistic modeling:** Integration with mathematical models of cellular processes
+
+::: {.notes}
+These are important topics the review acknowledges but doesn't deeply address:
+
+**Causal Inference:** The paper mentions structural equation models briefly but doesn't explore how to establish causality vs. correlation in multi-omics networks. This is critical for understanding disease mechanisms.
+
+**Temporal Dynamics:** While trajectory analysis is mentioned for single-cell, true time-series multi-omics analysis methods are under-explored.
+
+**Batch Effects:** A huge practical problem - how do you normalize and integrate data from different labs, platforms, and time periods? The review doesn't address this.
+
+**Clinical Translation:** The gap between multi-omics biomarker discovery and FDA-approved clinical tests is enormous and barely discussed.
+
+**Cost-Benefit:** Not all omics provide equal value for every question. When should you invest in metabolomics vs. just doing good transcriptomics? No guidance given.
+
+**Reproducibility:** Multi-omics findings often don't replicate across cohorts. Why? How do we improve this?
+
+**Mathematical Modeling:** How do we integrate multi-omics data with mechanistic models (ODEs, flux balance analysis, etc.)? Mentioned but not explored.
+:::
+
+---
+
+## Discussion & Series Planning {.smaller}
+
+**For Future Journal Club Sessions:**
+
+1. **Methods Deep-Dive:** Latent factor models, network inference, ML/DL approaches
+2. **Cancer Applications:** TCGA multi-omics, precision oncology
+3. **Single-Cell Multi-Omics:** Technologies and analysis methods
+4. **⭐ Spatial Multi-Omics:** Tumor microenvironment (NEW - not in 2021 review)
+5. **Clinical Translation:** Biomarker validation, regulatory aspects
+6. **Practical Session:** Analysis workflow demonstration
+7. **⭐ AI/Foundation Models:** Multimodal learning (NEW - post-2021)
+
+**Key Updates Needed:**
+- Spatial omics technologies and their impact
+- Foundation models for biological data (2024-2026)
+- Advances in proteomics (Olink, SomaScan)
+- Better cloud computing infrastructure
+- Knowledge graphs and graph neural networks
+
+::: {.notes}
+Use this slide to organize the 6-7 session series:
+
+**Session 1 (Today):** Overview of challenges and landscape
+**Session 2:** Deep dive into statistical methods - factor analysis, Bayesian approaches, regularization
+**Session 3:** Cancer-specific applications - how TCGA uses multi-omics, precision oncology case studies
+**Session 4:** Single-cell multi-omics technologies and analytical approaches
+**Session 5:** SPATIAL MULTI-OMICS - This is critical for cancer and completely missing from 2021 review
+**Session 6:** Clinical translation challenges and case studies
+**Session 7:** Either practical analysis demo OR discussion of AI/foundation models
+
+**Major Gaps to Address in Series:**
+1. The 2021 paper predates spatial omics - need entire session on this
+2. Foundation models and LLMs for biology emerged 2023-2024
+3. Proteomics has dramatically improved since 2021
+4. Better solutions now exist for data commons and sharing
+5. Knowledge graphs are becoming more important
+
+**Discussion Questions:**
+- What cancer biology questions need multi-omics vs. single-omics approaches?
+- How do we validate multi-omics biomarkers clinically?
+- What's the minimum viable multi-omics experiment?
+- Should we focus on bulk or single-cell for our research questions?
+:::
+
+---
+
+## References & Resources
+
+**Original Paper:**
+Tarazona, S., Arzalluz-Luque, A. & Conesa, A. Undisclosed, unmet and neglected challenges in multi-omics studies. _Nat Comput Sci_ **1**, 395–402 (2021).
+
+**Suggested Additional Reading:**
+- Spatial omics reviews (2023-2024)
+- Single-cell multi-omics methods reviews
+- MOFA, mixOmics, and other integration tools documentation
+- TCGA PanCancer Atlas papers
+
+**Tools to Explore:**
+- mixOmics (R package)
+- MOFA/MOFA+ (Python/R)
+- Seurat (single-cell integration)
+- Scanpy (Python single-cell)
+
+::: {.notes}
+Prepare reading materials for upcoming sessions. Consider having different team members lead different sessions based on expertise. Emphasize that while this 2021 review is comprehensive for its time, the field has evolved significantly, particularly in spatial biology and AI applications.
+:::
