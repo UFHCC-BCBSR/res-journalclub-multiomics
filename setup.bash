@@ -122,6 +122,13 @@ fi
 # Push
 git push -u origin main
 
+# Create labels first
+echo "Creating labels..."
+gh label create "session-1" --repo "$REPO_NAME" --color "0E8A16" --description "Session 1 materials" || true
+gh label create "speaker-needed" --repo "$REPO_NAME" --color "D93F0B" --description "Need to recruit speaker" || true
+gh label create "logistics" --repo "$REPO_NAME" --color "0052CC" --description "Series logistics and organization" || true
+gh label create "high-priority" --repo "$REPO_NAME" --color "B60205" --description "High priority item" || true
+
 # Create GitHub issues
 echo "Creating GitHub issues..."
 
