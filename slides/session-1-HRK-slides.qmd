@@ -3,11 +3,8 @@ title: "Advances in Bioinformatics: Multi-Omics"
 subtitle: "Session 1: Definitions, Modalities, and Analysis Frames"
 author: "Bioinformatics Journal Club"
 format:
-  revealjs:
+  pptx:
     slide-number: true
-    incremental: true
-    theme: simple
-    transition: fade
 execute:
   echo: false
 ---
@@ -28,228 +25,250 @@ In this session we will:
 
 > **Multi-omics analysis** integrates multiple molecular data layers measured on the same biological system to capture complementary aspects of regulation, state, and phenotype.
 
-**Key idea:**  
-Each omics layer provides a partial and complementary view of biology.
+**Key idea:** Each omics layer provides a partial and complementary view of biology.
+
+![Conceptual overview of multi-omics data types](figures/multi-omics-overview.png)
 
 ---
 
 ## Why Multi-Omics Exists
 
-Single-omic analyses answer limited questions:
+![Examples showing limitations of single-omic vs multi-omic approaches](figures/single-vs-multi-omics-comparison.png)
 
-- What mutations exist?
-- Which genes are expressed?
-
-Multi-omics enables deeper questions:
-
-- Which mutations are *functional*?
-- How regulation, expression, and phenotype connect
-- Why similar tumors behave differently
+::: notes
+Single-omic analyses answer limited questions: What mutations exist? Which genes are expressed? Multi-omics enables deeper questions: Which mutations are functional? How regulation, expression, and phenotype connect. Why similar tumors behave differently.
+:::
 
 ---
 
 ## The Central Dogma of Biology
 
+![Multi-layer information flow from genome to metabolome](figures/central-dogma-multilayer.png)
+
 **Genome → Epigenome → Transcriptome → Proteome → Metabolome**
 
-- Information flow is *not strictly linear*
+- Information flow is not strictly linear
 - Each layer captures a different biological abstraction
-- Integration attempts to recover relationships between layers
 
-*(Insert conceptual figure here — e.g. Hasin et al., Genome Biology 2017)*
+::: notes
+Integration attempts to recover relationships between layers. Classic reference: Hasin et al., Genome Biology 2017.
+:::
 
 ---
 
 ## Genomics
 
-**Definition**
+**Definition:** DNA sequence variation including germline and somatic mutations, copy number alterations, and structural variants
 
-Genomics characterizes DNA sequence variation, including germline and somatic mutations, copy number alterations, and structural variants.
-
-**Common technologies**
+**Common technologies:**
 - Whole-genome sequencing (WGS)
 - Whole-exome sequencing (WES)
 - Targeted gene panels
+
+![Genomics technology comparison](figures/genomics-technologies.png)
 
 ---
 
 ## Genomics: Why It Matters
 
-**What genomics tells us**
+![TCGA Pan-Cancer mutation landscape showing recurrent drivers](figures/tcga-mutation-landscape.png)
+
+**What genomics tells us:**
 - Cancer drivers and susceptibility
 - Clonal structure and evolution
 - What *could* happen biologically
 
-**Concrete example**
-- TCGA Pan-Cancer Atlas: recurrent somatic mutation landscapes across cancers
-
-**Limitation**
-- Genomics does not measure activity or regulation
+::: notes
+Concrete example: TCGA Pan-Cancer Atlas showing recurrent somatic mutation landscapes across cancers. Key limitation: Genomics does not measure activity or regulation.
+:::
 
 ---
 
 ## Epigenomics
 
-**Definition**
+**Definition:** Chromatin state and DNA modifications that regulate gene accessibility without altering DNA sequence
 
-Epigenomics measures chromatin state and DNA modifications that regulate gene accessibility without altering DNA sequence.
-
-**Common technologies**
+**Common technologies:**
 - ATAC-seq (chromatin accessibility)
 - ChIP-seq / CUT&RUN (TFs, histone marks)
 - DNA methylation sequencing (WGBS, RRBS)
+
+![Epigenomics assay types and readouts](figures/epigenomics-assays.png)
 
 ---
 
 ## Epigenomics: Why It Matters
 
-**What epigenomics tells us**
+![CpG island methylator phenotype in colorectal cancer](figures/cimp-colorectal.png)
+
+**What epigenomics tells us:**
 - Regulatory potential
 - Cell identity and lineage memory
 - Mechanisms of transcriptional control
 
-**Concrete example**
-- CpG island methylator phenotype in colorectal cancer
+::: notes
+Concrete example: CpG island methylator phenotype (CIMP) in colorectal cancer shows how epigenetic silencing drives tumorigenesis independent of mutation.
+:::
 
 ---
 
 ## Transcriptomics
 
-**Definition**
+**Definition:** RNA abundance capturing active gene expression programs
 
-Transcriptomics quantifies RNA abundance to capture active gene expression programs.
-
-**Common technologies**
+**Common technologies:**
 - Bulk RNA-seq
 - Single-cell RNA-seq
 - Spatial transcriptomics
+
+![Transcriptomics technology comparison](figures/transcriptomics-technologies.png)
 
 ---
 
 ## Transcriptomics: Why It Matters
 
-**What transcriptomics tells us**
+![PAM50 breast cancer subtypes based on expression](figures/pam50-breast-subtypes.png)
+
+**What transcriptomics tells us:**
 - Pathway activation
 - Cell states and populations
 - Tumor microenvironment composition
 
-**Concrete example**
-- Expression-based cancer subtypes (e.g., PAM50 breast cancer)
-
-**Caveat**
-- RNA abundance ≠ protein abundance ≠ activity
+::: notes
+Concrete example: Expression-based cancer subtypes like PAM50 breast cancer classification. Caveat: RNA abundance ≠ protein abundance ≠ activity.
+:::
 
 ---
 
 ## Proteomics
 
-**Definition**
+**Definition:** Protein abundance, modifications, and interactions—the functional machinery of the cell
 
-Proteomics measures protein abundance, modifications, and interactions—the functional machinery of the cell.
-
-**Common technologies**
+**Common technologies:**
 - Mass spectrometry–based proteomics
 - Antibody-based platforms (RPPA, CyTOF)
+
+![Proteomics workflow and platforms](figures/proteomics-platforms.png)
 
 ---
 
 ## Proteomics: Why It Matters
 
-**What proteomics tells us**
+![CPTAC RNA-protein correlation showing widespread discordance](figures/cptac-rna-protein-discordance.png)
+
+**What proteomics tells us:**
 - Pathway activation at the functional level
 - Drug target engagement
 - Post-translational regulation
 
-**Concrete example**
-- CPTAC showing widespread RNA–protein discordance in tumors
+::: notes
+Concrete example: CPTAC showing widespread RNA–protein discordance in tumors, demonstrating that transcript levels are often poor predictors of protein abundance.
+:::
 
 ---
 
 ## Metabolomics
 
-**Definition**
+**Definition:** Small molecules reflecting biochemical activity and metabolic flux
 
-Metabolomics profiles small molecules reflecting biochemical activity and metabolic flux.
-
-**Common technologies**
+**Common technologies:**
 - LC-MS / GC-MS
 - Targeted vs untargeted metabolomics
+
+![Metabolomics workflow](figures/metabolomics-workflow.png)
 
 ---
 
 ## Metabolomics: Why It Matters
 
-**What metabolomics tells us**
+![2-hydroxyglutarate accumulation in IDH-mutant gliomas](figures/idh-mutant-2hg.png)
+
+**What metabolomics tells us:**
 - Phenotype-proximal biology
 - Metabolic reprogramming
 - Drug response and toxicity
 
-**Concrete example**
-- IDH-mutant gliomas and the oncometabolite 2-hydroxyglutarate
+::: notes
+Concrete example: IDH-mutant gliomas produce the oncometabolite 2-hydroxyglutarate, which drives epigenetic dysregulation and tumorigenesis.
+:::
 
 ---
 
-## Parallel vs Non-Parallel vs. Multi-Modal Multi-Omics
+## Parallel vs Non-Parallel vs Multi-Modal Multi-Omics
 
-**Non-parallel**
-- Different cohorts, platforms, or timepoints
-- Requires alignment or meta-analytic thinking
+**Non-parallel:** Different cohorts, platforms, or timepoints → meta-analytic approaches
 
-**Parallel (matched samples)**
-- Multiple omics measured on the same samples
-- Enables direct integration
+**Parallel (matched samples):** Multiple omics on the same samples → direct integration
 
-**Multi-Modal**
-- Multiple omics measured from the same tissue, cells, etc.
-- Integrated analysis tools are available
+**Multi-Modal:** Multiple omics from the same cells/tissue → integrated analysis tools
+
+![Schematic showing three multi-omics paradigms](figures/multiomics-paradigms.png)
 
 ---
 
-## Example: Non-Parallel Multi-Omics
+## Non-Parallel Multi-Omics: How It Works
 
-- Public RNA-seq + private proteomics cohorts (non-parallel)
+![Technology diagram showing separate cohorts for RNA-seq and proteomics](figures/non-parallel-workflow.png)
 
-How it works (e.g. technologies and data generation)
+**Example:** Public RNA-seq + private proteomics cohorts
 
----
-
-## Example: Non-Parallel Multi-Omics
-
-- Public RNA-seq + private proteomics cohorts (non-parallel)
-
-An example of a study, its figure panel, its main finding
+::: notes
+Non-parallel studies require alignment or meta-analytic thinking. Data may come from different technologies, platforms, or timepoints. Integration relies on shared features (e.g., genes) rather than shared samples.
+:::
 
 ---
 
-## Example: Parallel Multi-Omics
+## Non-Parallel Multi-Omics: Study Example
 
-- TCGA: genomics + transcriptomics on same tumors (parallel)
+![Main results from non-parallel multi-omics study](figures/non-parallel-study-example.png)
 
-How it works (e.g. technologies and data generation)
-
----
-
-## Example: Parallel Multi-Omics
-
-- TCGA: genomics + transcriptomics on same tumors (parallel)
-
-An example of a study, its figure panel, its main finding
+::: notes
+Example study demonstrating how separate RNA-seq and proteomics cohorts can be analyzed to identify convergent biological signals or validate findings across platforms. Main finding should show concordance or complementarity of results.
+:::
 
 ---
 
-## Example: Multi-Modal Multi-Omics
+## Parallel Multi-Omics: How It Works
 
-- TCGA: genomics + transcriptomics on same tumors (parallel)
+![TCGA workflow showing genomics and transcriptomics on same tumor samples](figures/parallel-workflow-tcga.png)
 
-How it works (e.g. technologies and data generation)
+**Example:** TCGA genomics + transcriptomics on same tumors
+
+::: notes
+Parallel multi-omics measures multiple data types on matched samples. This enables direct correlation, stratification, and integrative modeling. TCGA is the prototypical example with WES, RNA-seq, methylation, and more on the same tumors.
+:::
 
 ---
 
-## Example: Multi-Modal Multi-Omics
+## Parallel Multi-Omics: Study Example
 
-- TCGA: genomics + transcriptomics on same tumors (parallel)
+![TCGA study showing mutation-expression relationships](figures/parallel-study-example-tcga.png)
 
-An example of a study, its figure panel, its main finding
+::: notes
+Example: TCGA studies showing how somatic mutations correlate with expression subtypes, or how methylation patterns predict clinical outcomes. Main finding should demonstrate cross-layer relationships that wouldn't be visible in single-omic analysis.
+:::
+
+---
+
+## Multi-Modal Multi-Omics: How It Works
+
+![Multi-modal assay technologies like CITE-seq, 10X Multiome](figures/multimodal-technologies.png)
+
+**Example:** Single-cell technologies measuring multiple layers simultaneously
+
+::: notes
+Multi-modal assays measure multiple omics from the same cells or tissue sections. Examples: CITE-seq (RNA + protein), 10X Multiome (ATAC + RNA), PacBio HiFi sequencing (methylation + DNA), spatial multi-omics (RNA + protein in tissue). These enable cell-level integration.
+:::
+
+---
+
+## Multi-Modal Multi-Omics: Study Example
+
+![Results from multi-modal study showing cell-level integration](figures/multimodal-study-example.png)
+
+::: notes
+Example study using multi-modal technology to reveal cell-type-specific regulation, spatial organization, or disease mechanisms that require simultaneous measurement of multiple layers. Main finding should highlight insights only possible with multi-modal data.
+:::
 
 ---
 
