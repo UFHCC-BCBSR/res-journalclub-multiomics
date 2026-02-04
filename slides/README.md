@@ -1,11 +1,12 @@
 ---
+---
 editor_options: 
   markdown: 
     wrap: 72
 ---
 
 # Slides Directory
-
+```
 ├── bcbsr-journalclub-jb.pptx    # Jason's slides
 ├── figures                       # Folder for figures if using quarto
 ├── prep                          # Files from our prep meeting
@@ -14,3 +15,4 @@ editor_options:
 ├── README.md                     # This file
 ├── session-1-HRK-slides.qmd     # Heather's slides in quarto format
 └── session-outline-FYI.qmd      # Our original outline of the session FYI
+```
