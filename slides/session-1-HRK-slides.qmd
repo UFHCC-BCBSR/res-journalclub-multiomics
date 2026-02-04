@@ -33,7 +33,6 @@ In this session we will:
 
 ## Why Multi-Omics Exists
 
-![Examples showing limitations of single-omic vs multi-omic approaches](figures/single-vs-multi-omics-comparison.png)
 
 ::: notes
 Single-omic analyses answer limited questions: What mutations exist? Which genes are expressed? Multi-omics enables deeper questions: Which mutations are functional? How regulation, expression, and phenotype connect. Why similar tumors behave differently.
@@ -79,7 +78,7 @@ Integration attempts to recover relationships between layers. Classic reference:
 - What *could* happen biologically
 
 ::: notes
-Concrete example: TCGA Pan-Cancer Atlas showing recurrent somatic mutation landscapes across cancers. Key limitation: Genomics does not measure activity or regulation.
+Concrete example: Pan-cancer analysis showing recurrent driver mutations across cancer types, their mutation mechanisms (point mutations, amplifications, etc.), and prognostic associations. Demonstrates how genomics identifies both driver genes and clinically relevant alterations. Key limitation: Genomics does not measure activity or regulation—mutation presence doesn't tell us if the pathway is active or how it's being regulated.
 :::
 
 ---
@@ -154,15 +153,15 @@ Concrete example: Expression-based cancer subtypes like PAM50 breast cancer clas
 
 ## Proteomics: Why It Matters
 
-![CPTAC RNA-protein correlation showing widespread discordance](figures/cptac-rna-protein-discordance.png)
+![HER2 assessment across genomic, transcriptomic, and proteomic layers](figures/cptac-her2-multilayer.png)
 
 **What proteomics tells us:**
-- Pathway activation at the functional level
-- Drug target engagement
-- Post-translational regulation
+- Functional protein levels for clinical decisions
+- Discordance between genomic/transcriptomic and protein layers
+- Post-transcriptional regulation
 
 ::: notes
-Concrete example: CPTAC showing widespread RNA–protein discordance in tumors, demonstrating that transcript levels are often poor predictors of protein abundance.
+Concrete example: HER2 classification varies by layer—samples HER2+ by protein may be negative by RNA or CNV. RNA-protein correlation is only 0.53. For anti-HER2 therapy decisions, protein measurement is essential. This discordance motivates multi-omics integration to capture regulation from DNA → RNA → protein.
 :::
 
 ---
@@ -181,62 +180,28 @@ Concrete example: CPTAC showing widespread RNA–protein discordance in tumors, 
 
 ## Metabolomics: Why It Matters
 
-![2-hydroxyglutarate accumulation in IDH-mutant gliomas](figures/idh-mutant-2hg.png)
+![Metabolites as regulatory molecules connecting omics layers](figures/metabolites-in-multiomes.png)
+
 
 **What metabolomics tells us:**
+- Metabolic regulation of epigenetics and protein function
 - Phenotype-proximal biology
-- Metabolic reprogramming
-- Drug response and toxicity
+- Metabolic reprogramming in disease
 
 ::: notes
-Concrete example: IDH-mutant gliomas produce the oncometabolite 2-hydroxyglutarate, which drives epigenetic dysregulation and tumorigenesis.
+Concrete example: Metabolites like SAM (S-adenosylmethionine) drive DNA/histone methylation, while acetyl-CoA enables histone acetylation. Lactate affects post-translational modifications. Metabolomics reveals how metabolism directly regulates gene expression and protein function, connecting metabolic state to epigenetic and proteomic layers—motivating multi-omics integration.
 :::
 
 ---
 
-## Parallel vs Non-Parallel vs Multi-Modal Multi-Omics
-
-**Non-parallel:** Different cohorts, platforms, or timepoints → meta-analytic approaches
+## Parallel vs Joint Profiling Multi-Omics
 
 **Parallel (matched samples):** Multiple omics on the same samples → direct integration
 
-**Multi-Modal:** Multiple omics from the same cells/tissue → integrated analysis tools
+**Joint Profiling:** Multiple omics from the same cells/tissue → integrated analysis tools
 
-![Schematic showing three multi-omics paradigms](figures/multiomics-paradigms.png)
+![Schematic showing two multi-omics paradigms](figures/multiomics-paradigms.png)
 
----
-
-## Non-Parallel Multi-Omics: How It Works
-
-![Technology diagram showing separate cohorts for RNA-seq and proteomics](figures/non-parallel-workflow.png)
-
-**Example:** Public RNA-seq + private proteomics cohorts
-
-::: notes
-Non-parallel studies require alignment or meta-analytic thinking. Data may come from different technologies, platforms, or timepoints. Integration relies on shared features (e.g., genes) rather than shared samples.
-:::
-
----
-
-## Non-Parallel Multi-Omics: Study Example
-
-![Main results from non-parallel multi-omics study](figures/non-parallel-study-example.png)
-
-::: notes
-Example study demonstrating how separate RNA-seq and proteomics cohorts can be analyzed to identify convergent biological signals or validate findings across platforms. Main finding should show concordance or complementarity of results.
-:::
-
----
-
-## Parallel Multi-Omics: How It Works
-
-![TCGA workflow showing genomics and transcriptomics on same tumor samples](figures/parallel-workflow-tcga.png)
-
-**Example:** TCGA genomics + transcriptomics on same tumors
-
-::: notes
-Parallel multi-omics measures multiple data types on matched samples. This enables direct correlation, stratification, and integrative modeling. TCGA is the prototypical example with WES, RNA-seq, methylation, and more on the same tumors.
-:::
 
 ---
 
@@ -250,21 +215,37 @@ Example: TCGA studies showing how somatic mutations correlate with expression su
 
 ---
 
-## Multi-Modal Multi-Omics: How It Works
+## Single-Cell Multi-Omics Technologies
 
-![Multi-modal assay technologies like CITE-seq, 10X Multiome](figures/multimodal-technologies.png)
+| **Omics Combination** | **Methods** |
+|----------------------|-------------|
+| Genome + Transcriptome | G&T-seq, SCTG, DR-seq, SIDR-seq, TARGET-seq, sci-L3-RNA/DNA, DNTR-seq, scONE-seq |
+| Epigenome + Transcriptome | scMT-seq, scCAT-seq, sci-CAR, SNARE-seq, scDam&T-seq, Paired-seq, SHARE-seq, ASTAR-seq, SNARE-seq2, scChaRM-seq, Smart-RRBS, scNOMeRe-seq, Paired-Tag, scPCOR-seq, uCoTargetX |
+| Transcriptome + Proteome | REAP-seq, CITE-seq, RAID, inCITE-seq, SPARC, CaRPool-seq, InTraSeq |
+| Transcriptome + CRISPR | Perturb-seq, CRISP-seq, CROP-seq |
+| Epigenome + Proteome | ICICLE-seq, ASAP-seq, PHAGE-ATAC, scCUT&Tag-pro |
+| Epigenome + CRISPR | Perturb-ATAC, CRISPR-sciATAC, Spear-ATAC |
+| Transcriptome + Epigenome + Proteome | TEA-seq, DOGMA-seq, NEAT-seq, CellOracle |
+| Genome + Epigenome + Transcriptome | scTrio-seq, snmCAT-seq |
+| Transcriptome + Proteome + CRISPR | ECCITE-seq |
+| Transcriptome + Metabolome | scMeT-seq |
+| Multi-modal flexible | UDA-seq |
 
-**Example:** Single-cell technologies measuring multiple layers simultaneously
+---
+
+## Spatial Omics of the Breast Tumor Microenvironment
+
+![Results from joint profiling study showing cell-level integration](figures/multimodal-study-example.jpg)
 
 ::: notes
-Multi-modal assays measure multiple omics from the same cells or tissue sections. Examples: CITE-seq (RNA + protein), 10X Multiome (ATAC + RNA), PacBio HiFi sequencing (methylation + DNA), spatial multi-omics (RNA + protein in tissue). These enable cell-level integration.
+Example study using multi-modal technology to reveal cell-type-specific regulation, spatial organization, or disease mechanisms that require simultaneous measurement of multiple layers. Main finding should highlight insights only possible with multi-modal data.
 :::
 
 ---
 
-## Multi-Modal Multi-Omics: Study Example
+## Integrated spatial omics of metabolic reprogramming and the tumor microenvironment in pancreatic cancer
 
-![Results from multi-modal study showing cell-level integration](figures/multimodal-study-example.png)
+![Results from joint profiling study showing cell-level integration](figures/multimodal-pancreatic-cancer.jpg)
 
 ::: notes
 Example study using multi-modal technology to reveal cell-type-specific regulation, spatial organization, or disease mechanisms that require simultaneous measurement of multiple layers. Main finding should highlight insights only possible with multi-modal data.
