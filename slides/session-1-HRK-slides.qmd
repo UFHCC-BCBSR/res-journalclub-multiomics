@@ -189,27 +189,71 @@ Metabolomics profiles small molecules reflecting biochemical activity and metabo
 
 ---
 
-## Parallel vs Non-Parallel Multi-Omics
-
-**Parallel (matched samples)**
-- Multiple omics measured on the same samples
-- Enables direct integration
+## Parallel vs Non-Parallel vs. Multi-Modal Multi-Omics
 
 **Non-parallel**
 - Different cohorts, platforms, or timepoints
 - Requires alignment or meta-analytic thinking
 
+**Parallel (matched samples)**
+- Multiple omics measured on the same samples
+- Enables direct integration
+
+**Multi-Modal**
+- Multiple omics measured from the same tissue, cells, etc.
+- Integrated analysis tools are available
+
 ---
 
-## Example: Parallel vs Non-Parallel
+## Example: Non-Parallel Multi-Omics
 
-- TCGA: genomics + transcriptomics on same tumors (parallel)
 - Public RNA-seq + private proteomics cohorts (non-parallel)
 
-**Key takeaway**
-> Not all multi-omics data are integrable.
+How it works (e.g. technologies and data generation)
 
 ---
+
+## Example: Non-Parallel Multi-Omics
+
+- Public RNA-seq + private proteomics cohorts (non-parallel)
+
+An example of a study, its figure panel, its main finding
+
+---
+
+## Example: Parallel Multi-Omics
+
+- TCGA: genomics + transcriptomics on same tumors (parallel)
+
+How it works (e.g. technologies and data generation)
+
+---
+
+## Example: Parallel Multi-Omics
+
+- TCGA: genomics + transcriptomics on same tumors (parallel)
+
+An example of a study, its figure panel, its main finding
+
+---
+
+## Example: Multi-Modal Multi-Omics
+
+- TCGA: genomics + transcriptomics on same tumors (parallel)
+
+How it works (e.g. technologies and data generation)
+
+---
+
+## Example: Multi-Modal Multi-Omics
+
+- TCGA: genomics + transcriptomics on same tumors (parallel)
+
+An example of a study, its figure panel, its main finding
+
+---
+
+<!-- At this point, don't make any changes below -->
 
 ## Integrative Analysis vs Meta-Analysis
 
