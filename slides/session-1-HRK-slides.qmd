@@ -1,0 +1,352 @@
+---
+title: "Advances in Bioinformatics: Multi-Omics"
+subtitle: "Session 1: Definitions, Modalities, and Analysis Frames"
+author: "Bioinformatics Journal Club"
+format:
+  revealjs:
+    slide-number: true
+    incremental: true
+    theme: simple
+    transition: fade
+execute:
+  echo: false
+---
+
+## Session Goals
+
+In this session we will:
+
+- Define the major omics layers and what each measures  
+- Distinguish **parallel vs non-parallel** multi-omics  
+- Distinguish **integrative vs meta-analytic** approaches  
+- Understand **sample-focused vs feature-focused** analyses  
+- Recognize **challenges in multi-omics analysis**
+
+---
+
+## What Is Multi-Omics?
+
+> **Multi-omics analysis** integrates multiple molecular data layers measured on the same biological system to capture complementary aspects of regulation, state, and phenotype.
+
+**Key idea:**  
+Each omics layer provides a partial and complementary view of biology.
+
+---
+
+## Why Multi-Omics Exists
+
+Single-omic analyses answer limited questions:
+
+- What mutations exist?
+- Which genes are expressed?
+
+Multi-omics enables deeper questions:
+
+- Which mutations are *functional*?
+- How regulation, expression, and phenotype connect
+- Why similar tumors behave differently
+
+---
+
+## The Central Dogma of Biology
+
+**Genome → Epigenome → Transcriptome → Proteome → Metabolome**
+
+- Information flow is *not strictly linear*
+- Each layer captures a different biological abstraction
+- Integration attempts to recover relationships between layers
+
+*(Insert conceptual figure here — e.g. Hasin et al., Genome Biology 2017)*
+
+---
+
+## Genomics
+
+**Definition**
+
+Genomics characterizes DNA sequence variation, including germline and somatic mutations, copy number alterations, and structural variants.
+
+**Common technologies**
+- Whole-genome sequencing (WGS)
+- Whole-exome sequencing (WES)
+- Targeted gene panels
+
+---
+
+## Genomics: Why It Matters
+
+**What genomics tells us**
+- Cancer drivers and susceptibility
+- Clonal structure and evolution
+- What *could* happen biologically
+
+**Concrete example**
+- TCGA Pan-Cancer Atlas: recurrent somatic mutation landscapes across cancers
+
+**Limitation**
+- Genomics does not measure activity or regulation
+
+---
+
+## Epigenomics
+
+**Definition**
+
+Epigenomics measures chromatin state and DNA modifications that regulate gene accessibility without altering DNA sequence.
+
+**Common technologies**
+- ATAC-seq (chromatin accessibility)
+- ChIP-seq / CUT&RUN (TFs, histone marks)
+- DNA methylation sequencing (WGBS, RRBS)
+
+---
+
+## Epigenomics: Why It Matters
+
+**What epigenomics tells us**
+- Regulatory potential
+- Cell identity and lineage memory
+- Mechanisms of transcriptional control
+
+**Concrete example**
+- CpG island methylator phenotype in colorectal cancer
+
+---
+
+## Transcriptomics
+
+**Definition**
+
+Transcriptomics quantifies RNA abundance to capture active gene expression programs.
+
+**Common technologies**
+- Bulk RNA-seq
+- Single-cell RNA-seq
+- Spatial transcriptomics
+
+---
+
+## Transcriptomics: Why It Matters
+
+**What transcriptomics tells us**
+- Pathway activation
+- Cell states and populations
+- Tumor microenvironment composition
+
+**Concrete example**
+- Expression-based cancer subtypes (e.g., PAM50 breast cancer)
+
+**Caveat**
+- RNA abundance ≠ protein abundance ≠ activity
+
+---
+
+## Proteomics
+
+**Definition**
+
+Proteomics measures protein abundance, modifications, and interactions—the functional machinery of the cell.
+
+**Common technologies**
+- Mass spectrometry–based proteomics
+- Antibody-based platforms (RPPA, CyTOF)
+
+---
+
+## Proteomics: Why It Matters
+
+**What proteomics tells us**
+- Pathway activation at the functional level
+- Drug target engagement
+- Post-translational regulation
+
+**Concrete example**
+- CPTAC showing widespread RNA–protein discordance in tumors
+
+---
+
+## Metabolomics
+
+**Definition**
+
+Metabolomics profiles small molecules reflecting biochemical activity and metabolic flux.
+
+**Common technologies**
+- LC-MS / GC-MS
+- Targeted vs untargeted metabolomics
+
+---
+
+## Metabolomics: Why It Matters
+
+**What metabolomics tells us**
+- Phenotype-proximal biology
+- Metabolic reprogramming
+- Drug response and toxicity
+
+**Concrete example**
+- IDH-mutant gliomas and the oncometabolite 2-hydroxyglutarate
+
+---
+
+## Parallel vs Non-Parallel Multi-Omics
+
+**Parallel (matched samples)**
+- Multiple omics measured on the same samples
+- Enables direct integration
+
+**Non-parallel**
+- Different cohorts, platforms, or timepoints
+- Requires alignment or meta-analytic thinking
+
+---
+
+## Example: Parallel vs Non-Parallel
+
+- TCGA: genomics + transcriptomics on same tumors (parallel)
+- Public RNA-seq + private proteomics cohorts (non-parallel)
+
+**Key takeaway**
+> Not all multi-omics data are integrable.
+
+---
+
+## Integrative Analysis vs Meta-Analysis
+
+**Meta-analysis**
+- Combine results *after* independent analyses
+- Example: overlap of enriched pathways
+
+**Integrative analysis**
+- Joint modeling across omics layers
+- Example: latent factor models (e.g., MOFA-like frameworks)
+
+---
+
+## Why This Distinction Matters
+
+- Integration ≠ stacking plots
+- Different assumptions
+- Different failure modes
+- Different interpretability
+
+---
+
+## Sample-Focused Multi-Omics
+
+**Primary goal**
+- Stratify or cluster samples
+
+**Examples**
+- Cancer subtyping
+- Patient stratification
+- Treatment response prediction
+
+**Unit of analysis**
+- Samples
+
+---
+
+## Feature-Focused Multi-Omics
+
+**Primary goal**
+- Infer biological mechanisms
+
+**Examples**
+- Regulatory networks
+- TF → chromatin → RNA relationships
+- Signaling cascades
+
+**Unit of analysis**
+- Genes, proteins, regulatory elements
+
+---
+
+## Regulatory Network Example
+
+- ATAC-seq identifies accessible enhancers
+- TF binding inferred from motifs or CUT&RUN
+- RNA-seq links regulation to expression
+
+**Question asked**
+> How does regulation drive expression?
+
+---
+
+## Why Spatial Multi-Omics Matters
+
+Bulk and single-cell analyses lose context:
+
+- Bulk averages erase spatial structure
+- scRNA-seq loses tissue architecture
+
+**Spatial omics preserves**
+- Cell–cell interactions
+- Tissue niches
+- Functional microenvironments
+
+---
+
+## Spatial Multi-Omics Example
+
+- Tumor–immune boundary signaling
+- Stromal gradients influencing cancer progression
+
+**Key insight**
+> Same expression ≠ same function in different locations
+
+---
+
+## Challenges in Multi-omics Analysis
+
+So far, we’ve focused on:
+- What different omics layers measure
+- How multi-omics analyses are performed
+
+Next, we’ll shift to:
+- Why multi-omics analyses are challenging in practice
+
+---
+
+## Heterogeneity Across Omics Layers
+
+Common observations:
+- RNA–protein discordance
+- Open chromatin without expression
+- Metabolic changes without transcriptional shifts
+
+**Important framing**
+> Disagreement across omics is often the signal, not the noise.
+
+---
+
+## Missing Data in Multi-Omics
+
+**Types of missingness**
+- Missing by design (not assayed)
+- Missing not at random (low abundance)
+- Platform-specific dropout
+
+---
+
+## Why Missingness Matters
+
+- Breaks naïve integration methods
+- Forces modeling assumptions
+- Limits interpretability
+
+---
+
+## Key Takeaways
+
+- Each omics layer answers a different question
+- Multi-omics is a *framework*, not a checklist
+- Integration requires careful design
+- Complexity is the cost of biological realism
+
+---
+
+## Next Session
+
+**Session 2: **
+
