@@ -1,11 +1,5 @@
----
----
-editor_options: 
-  markdown: 
-    wrap: 72
----
-
 # Slides Directory
+
 ```
 ├── bcbsr-journalclub-jb.pptx    # Jason's slides
 ├── figures                       # Folder for figures if using quarto
