@@ -27,7 +27,7 @@ In this session we will:
 
 **Key idea:** Each omics layer provides a partial and complementary view of biology.
 
-![Conceptual overview of multi-omics data types](figures/multi-omics-overview.png)
+![Conceptual overview of multi-omics data types](figures/multi-omics-overview.jpg)
 
 ---
 

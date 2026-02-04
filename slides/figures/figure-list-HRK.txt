@@ -1,0 +1,130 @@
+Figure List
+figures/multi-omics-overview.png
+Description: Conceptual overview diagram showing the major omics data types (genomics, epigenomics, transcriptomics, proteomics, metabolomics) as interconnected layers with icons for each. Should be clean, professional, suitable for introductory slide.
+
+Search query: ("multi-omics" OR "multiomics") AND ("overview" OR "schematic" OR "framework") AND ("review" OR "perspective")
+
+Alternative: Create a simple schematic with icons for DNA, chromatin, RNA, protein, metabolites arranged in layers or connected network.
+
+figures/single-vs-multi-omics-comparison.png
+Description: Side-by-side comparison showing limitations of single-omic analysis (e.g., mutations without expression context) vs. multi-omic integration revealing functional consequences. Could be two panel figure or before/after style.
+
+Search query: ("multi-omics" OR "integrative analysis") AND ("advantage" OR "comparison" OR "limitation") cancer
+
+Suggested approach: Find a figure from review papers showing how single-layer analysis misses biology that multi-omics captures.
+
+figures/central-dogma-multilayer.png
+Description: Modern version of central dogma showing information flow from genome → epigenome → transcriptome → proteome → metabolome with feedback loops indicated. Should show non-linear relationships.
+
+Search query: ("central dogma" OR "information flow") AND ("omics" OR "multi-layer") AND ("regulation" OR "feedback")
+
+Reference: Look for Hasin et al. Genome Biology 2017 or similar review figure.
+
+figures/genomics-technologies.png
+Description: Comparison panel showing WGS, WES, and targeted panel sequencing with schematic workflows, coverage differences, and typical applications. Should include visual representation of coverage depth/breadth tradeoffs.
+
+Search query: ("whole genome sequencing" OR "WGS") AND ("whole exome" OR "WES") AND ("comparison" OR "methods") review
+
+figures/tcga-mutation-landscape.png
+Description: Pan-cancer mutation landscape from TCGA showing recurrent driver mutations across cancer types. Oncoprint or heatmap style showing mutations across samples and genes.
+
+Search query: TCGA AND "pan-cancer" AND ("mutation landscape" OR "driver mutations" OR "oncoprint")
+
+Specific papers: Sanchez-Vega et al. Cell 2018 (TCGA Pan-Cancer Atlas), Bailey et al. Cell 2018.
+
+figures/epigenomics-assays.png
+Description: Multi-panel figure showing different epigenomics assay types: ATAC-seq (open chromatin), ChIP-seq (histone marks/TFs), bisulfite sequencing (methylation). Each panel should show representative tracks/readouts.
+
+Search query: ("ATAC-seq" OR "ChIP-seq" OR "methylation") AND ("methods" OR "assay" OR "comparison") review
+
+figures/cimp-colorectal.png
+Description: Figure showing CpG island methylator phenotype in colorectal cancer - should show methylation patterns, genes affected, and clinical/molecular correlates.
+
+Search query: "CpG island methylator phenotype" OR "CIMP" AND "colorectal cancer" AND "methylation"
+
+Specific papers: Toyota et al., Weisenberger et al., or recent CIMP review.
+
+figures/transcriptomics-technologies.png
+Description: Comparison of bulk RNA-seq, single-cell RNA-seq, and spatial transcriptomics showing resolution tradeoffs, typical outputs (pseudobulk, UMAP, spatial maps), and use cases.
+
+Search query: ("RNA-seq" OR "transcriptomics") AND ("single-cell" OR "spatial") AND ("comparison" OR "technologies") review
+
+figures/pam50-breast-subtypes.png
+Description: PAM50 breast cancer classification showing gene expression heatmap with molecular subtypes (Luminal A, Luminal B, HER2-enriched, Basal-like) and associated clinical characteristics.
+
+Search query: "PAM50" AND "breast cancer" AND ("subtypes" OR "classification")
+
+Specific papers: Parker et al., Perou/Sorlie breast cancer subtyping papers.
+
+figures/proteomics-platforms.png
+Description: Proteomics workflow showing LC-MS/MS pipeline, alternative platforms (RPPA, CyTOF), and typical outputs. Should show sample prep through data analysis.
+
+Search query: ("mass spectrometry" OR "proteomics") AND ("workflow" OR "methods" OR "platforms") review
+
+figures/cptac-rna-protein-discordance.png
+Description: Scatter plots or correlation heatmaps from CPTAC showing poor RNA-protein correlation across tumor samples. Should demonstrate widespread discordance.
+
+Search query: CPTAC AND ("RNA-protein correlation" OR "transcript-protein" OR "discordance" OR "concordance")
+
+Specific papers: Zhang et al. Nature 2014, Mertins et al. Nature 2016 (CPTAC breast cancer).
+
+figures/metabolomics-workflow.png
+Description: Metabolomics experimental workflow from sample collection through LC-MS/GC-MS analysis to metabolite identification and pathway analysis.
+
+Search query: ("metabolomics" OR "LC-MS") AND ("workflow" OR "methods" OR "pipeline") review
+
+figures/idh-mutant-2hg.png
+Description: Figure showing IDH mutation leads to 2-hydroxyglutarate (2-HG) accumulation, which causes DNA hypermethylation and impacts differentiation. Should show mechanistic pathway.
+
+Search query: ("IDH mutation" OR "IDH1" OR "IDH2") AND ("2-hydroxyglutarate" OR "2-HG") AND ("glioma" OR "leukemia")
+
+Specific papers: Dang et al., Turcan et al. on IDH mutations and oncometabolite mechanism.
+
+figures/multiomics-paradigms.png
+Description: Three-panel schematic clearly distinguishing: (1) Non-parallel - separate cohorts/samples, (2) Parallel - matched samples, different assays, (3) Multi-modal - same cells, simultaneous measurement. Use consistent visual language (sample icons, arrows).
+
+Create this figure: Simple schematic drawing showing sample relationships in each paradigm.
+
+figures/non-parallel-workflow.png
+Description: Workflow diagram showing how non-parallel multi-omics works: separate cohorts processed with RNA-seq and proteomics, then results compared/integrated at feature level (genes/proteins).
+
+Create or find: Look for meta-analysis or cross-platform integration methods papers.
+
+figures/non-parallel-study-example.png
+Description: Main results figure from a study using non-parallel multi-omics (e.g., validating RNA-seq findings in independent proteomics cohort, or comparing public RNA vs. private protein data). Should show convergent findings.
+
+Search query: ("meta-analysis" OR "cross-platform") AND ("transcriptomics" AND "proteomics") AND "validation"
+
+figures/parallel-workflow-tcga.png
+Description: TCGA workflow diagram showing multiple assays (WES, RNA-seq, methylation, etc.) performed on same tumor samples with matched normal samples. Should show parallel structure clearly.
+
+Search query: TCGA AND ("workflow" OR "data types" OR "multi-platform") AND "methods"
+
+TCGA website: Can find official TCGA workflow diagrams.
+
+figures/parallel-study-example-tcga.png
+Description: TCGA study results showing cross-layer relationships, e.g., mutation-expression correlations, methylation-expression anti-correlations, or integrated subtypes combining multiple layers.
+
+Search query: TCGA AND ("integrative" OR "multi-omic" OR "multi-platform") AND ("subtypes" OR "correlation")
+
+Specific papers: TCGA Pan-Cancer papers, cancer-specific TCGA marker papers.
+
+figures/multimodal-technologies.png
+Description: Multi-panel figure showing examples of multi-modal assays:
+
+CITE-seq (scRNA-seq + antibody-derived tags)
+10X Multiome (scATAC + scRNA)
+PacBio HiFi (long-read DNA + methylation)
+Spatial multi-omics (RNA + protein in tissue: Xenium, CODEX, etc.)
+Each panel should show technology schematic and example output.
+
+Search query: ("CITE-seq" OR "10X Multiome" OR "Xenium" OR "spatial omics") AND ("methods" OR "technology") review
+
+Specific: Look for 10X Genomics, NanoString, PacBio method papers or company materials.
+
+figures/multimodal-study-example.png
+Description: Results from multi-modal study showing cell-level integration insights, e.g., CITE-seq revealing RNA-protein discordance at single-cell level, or spatial multi-omics showing ligand-receptor interactions in tissue context.
+
+Search query: ("CITE-seq" OR "multimodal" OR "spatial proteomics") AND ("single-cell" OR "spatial") AND ("tumor" OR "cancer")
+
+Examples: Stoeckius et al. CITE-seq paper, spatial oncology papers showing tumor microenvironment.
