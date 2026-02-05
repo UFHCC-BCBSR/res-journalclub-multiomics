@@ -128,3 +128,25 @@ Description: Results from multi-modal study showing cell-level integration insig
 Search query: ("CITE-seq" OR "multimodal" OR "spatial proteomics") AND ("single-cell" OR "spatial") AND ("tumor" OR "cancer")
 
 Examples: Stoeckius et al. CITE-seq paper, spatial oncology papers showing tumor microenvironment.
+
+figures/sample-centric-overview.png
+("multi-omics integration" OR "integrative omics") AND (workflow OR schematic OR overview) AND (clustering OR classification) AND samples
+What to look for: Conceptual diagram showing multi-omics data integration workflow for sample clustering, or simple example showing samples × multiple omics layers → clustering
+Example: Methods paper figures showing integration pipeline
+
+figures/sample-focused-clustering.png
+("multi-omics" OR "integrative clustering" OR "iCluster") AND (cancer OR tumor) AND (subtype OR subtyping OR classification) AND (survival OR outcome OR prognosis) AND (TCGA OR CPTAC)
+Alternative query: "consensus clustering" AND "multi-omics" AND cancer AND "molecular subtype" AND clinical
+What to look for: Multi-panel figure showing (1) clustering visualization (heatmap with samples as columns, different omics as row blocks, or UMAP with subtype colors), (2) subtype assignments, (3) Kaplan-Meier survival curves or treatment response by subtype
+Example papers: TCGA pan-cancer cell-of-origin subtypes, breast cancer multi-omics subtypes, ovarian cancer platinum response subtypes
+
+figures/feature-centric-overview.png
+("multi-omics" OR "integrative analysis") AND (network OR pathway) AND (regulatory OR signaling OR mechanism) AND (schematic OR workflow)
+What to look for: Conceptual diagram showing how different omics layers connect mechanistically (genomics → epigenomics → transcriptomics → proteomics), or network diagram showing gene/protein interactions across layers
+Example: Methods/review paper figures showing multi-layer network integration
+
+figures/feature-centric-regulatory-network.png
+ATAC-seq AND ("transcription factor" OR TF) AND "gene expression" AND (network OR regulatory OR mechanism) AND (CUT&RUN OR ChIP-seq OR motif)
+Alternative query: "chromatin accessibility" AND "gene regulatory network" AND enhancer AND expression
+What to look for: Genome browser tracks showing ATAC peaks + TF ChIP/motifs + RNA expression at specific locus, network with TF (center) connected to target genes (periphery) with ATAC/expression support, or three-panel showing (1) ATAC signal, (2) TF motif enrichment, (3) correlated gene expression
+Example papers: Cell fate/differentiation studies using ATAC + RNA, master regulator TF studies, enhancer-promoter linking studies
