@@ -4,7 +4,6 @@ subtitle: "Session 1: Foundations for Understanding Multi-Omics Research"
 author: "Bioinformatics Journal Club"
 format:
   pptx:
-    reference-doc: uf-multiomics-template.pptx
     slide-number: true
 execute:
   echo: false
@@ -70,9 +69,13 @@ Each omics layer captures one view of a connected biological system. Integration
 
 ---
 
-## Genomics: The Blueprint
+## Genomics: "What can happen"
 
 ::: {.columns}
+::: {.column width="50%"}
+![](figures/genomics-technologies.png)
+:::
+
 ::: {.column width="50%"}
 **What it measures:** DNA sequence variation
 
@@ -83,9 +86,6 @@ Each omics layer captures one view of a connected biological system. Integration
 - Targeted panels
 :::
 
-::: {.column width="50%"}
-![](figures/genomics-technologies.png)
-:::
 :::
 
 ::: notes
@@ -112,6 +112,10 @@ Takeaway: Genomics defines potential—integration with other layers reveals rea
 
 ::: {.columns}
 ::: {.column width="50%"}
+![](figures/epigenomics-assays.png)
+:::
+
+::: {.column width="50%"}
 **What it measures:** Chromatin state and DNA modifications controlling gene accessibility
 
 **Common technologies:**
@@ -119,10 +123,6 @@ Takeaway: Genomics defines potential—integration with other layers reveals rea
 - ATAC-seq (chromatin accessibility)
 - ChIP-seq / CUT&RUN (TF binding, histone marks)
 - Bisulfite sequencing (DNA methylation)
-:::
-
-::: {.column width="50%"}
-![](figures/epigenomics-assays.png)
 :::
 :::
 
@@ -150,6 +150,10 @@ Takeaway: Epigenomics reveals regulatory potential—which parts of the genome a
 
 ::: {.columns}
 ::: {.column width="50%"}
+![](figures/transcriptomics-technologies.png)
+:::
+
+::: {.column width="50%"}
 **What it measures:** RNA abundance reflecting active transcriptional programs
 
 **Common technologies:**
@@ -157,10 +161,6 @@ Takeaway: Epigenomics reveals regulatory potential—which parts of the genome a
 - Bulk RNA-seq
 - Single-cell RNA-seq
 - Spatial transcriptomics
-:::
-
-::: {.column width="50%"}
-![](figures/transcriptomics-technologies.png)
 :::
 :::
 
@@ -190,16 +190,16 @@ Takeaway: Transcriptomics captures gene expression programs but requires integra
 
 ::: {.columns}
 ::: {.column width="50%"}
+![](figures/proteomics-platforms.png)
+:::
+
+::: {.column width="50%"}
 **What it measures:** Protein abundance, modifications, and interactions
 
 **Common technologies:**
 
 - Mass spectrometry-based proteomics
 - Antibody-based platforms (RPPA, CyTOF)
-:::
-
-::: {.column width="50%"}
-![](figures/proteomics-platforms.png)
 :::
 :::
 
@@ -235,6 +235,10 @@ Takeaway: Discordance across layers motivates multi-omics integration to capture
 
 ::: {.columns}
 ::: {.column width="50%"}
+![](figures/metabolomics-workflow.png)
+:::
+
+::: {.column width="50%"}
 **What it measures:** Small molecules reflecting metabolic flux and enzymatic activity
 
 **Common technologies:**
@@ -242,10 +246,6 @@ Takeaway: Discordance across layers motivates multi-omics integration to capture
 - LC-MS / GC-MS
 - Targeted vs untargeted approaches
 - NMR spectroscopy
-:::
-
-::: {.column width="50%"}
-![](figures/metabolomics-workflow.png)
 :::
 :::
 
