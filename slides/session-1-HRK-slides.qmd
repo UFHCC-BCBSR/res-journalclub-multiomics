@@ -253,7 +253,7 @@ Example study using multi-modal technology to reveal cell-type-specific regulati
 
 ---
 
-<!-- At this point, don't make any changes below -->
+<!-- Begin slides not for review -->
 
 ## Integrative Analysis vs Meta-Analysis
 
@@ -274,72 +274,73 @@ Example study using multi-modal technology to reveal cell-type-specific regulati
 - Different failure modes
 - Different interpretability
 
----
-
-## Sample-Focused Multi-Omics
-
-**Primary goal**
-- Stratify or cluster samples
-
-**Examples**
-- Cancer subtyping
-- Patient stratification
-- Treatment response prediction
-
-**Unit of analysis**
-- Samples
+<!-- End slides not for review -->
 
 ---
 
-## Feature-Focused Multi-Omics
+## Multi-Omics Integration Approaches
 
-**Primary goal**
-- Infer biological mechanisms
+![Multi-omics integration strategies for different analytical goals](figures/integration-approaches.png)
 
-**Examples**
-- Regulatory networks
-- TF → chromatin → RNA relationships
-- Signaling cascades
+::: {.columns}
+::: {.column width="50%"}
+**Sample-Centric**
+- **Goal:** Cluster/classify samples
+- **Output:** Patient subtypes, groups
+- **Example:** Cancer subtyping
+- **Unit:** Samples
+:::
 
-**Unit of analysis**
-- Genes, proteins, regulatory elements
+::: {.column width="50%"}
+**Feature-Centric**
+- **Goal:** Infer mechanisms
+- **Output:** Networks, pathways
+- **Example:** Regulatory networks
+- **Unit:** Genes, proteins
+:::
+:::
 
----
-
-## Regulatory Network Example
-
-- ATAC-seq identifies accessible enhancers
-- TF binding inferred from motifs or CUT&RUN
-- RNA-seq links regulation to expression
-
-**Question asked**
-> How does regulation drive expression?
-
----
-
-## Why Spatial Multi-Omics Matters
-
-Bulk and single-cell analyses lose context:
-
-- Bulk averages erase spatial structure
-- scRNA-seq loses tissue architecture
-
-**Spatial omics preserves**
-- Cell–cell interactions
-- Tissue niches
-- Functional microenvironments
+::: notes
+Figure shows multi-omics integration (middle panel) can yield different insights (right panel) depending on analytical approach. Sample-centric analysis (bottom right: Classification) integrates across omics layers to group samples into subtypes based on molecular similarity - shown as blue vs. brown patient groups. Feature-centric analysis (top right: Network) connects molecular features across layers to infer biological mechanisms - shown as network with eigen factor connecting different molecular entities. The middle panel illustrates how each omics layer contains within-layer relationships (nodes and edges within each plane) and cross-layer relationships (dashed lines between planes) that can be leveraged for either approach.
+:::
 
 ---
 
-## Spatial Multi-Omics Example
+## Sample-Centric Example: Cancer Subtyping
 
-- Tumor–immune boundary signaling
-- Stromal gradients influencing cancer progression
+![Multi-omics cancer subtyping and clinical outcomes](figures/sample-focused-clustering.png)
 
-**Key insight**
-> Same expression ≠ same function in different locations
+**Integration approach:**
+- Genomics + transcriptomics + proteomics
+- Clustering/classification across samples
+- Molecular subtypes with clinical relevance
+
+**Question asked:** Which molecular subtypes exist and how do they relate to outcomes?
+
+::: notes
+Sample-centric analysis integrates multi-omics data across samples to identify biologically and clinically meaningful subtypes. Figure should show: (1) Multi-omics clustering (UMAP, heatmap, or consensus clustering), (2) Molecular subtype assignments, (3) Clinical associations (survival curves, treatment response). Example: TCGA pan-cancer iCluster analysis revealing molecular subtypes that cross tissue boundaries, or multi-omics classification of breast cancer into actionable subtypes beyond PAM50.
+:::
 
 ---
+
+## Feature-Centric Example: Regulatory Networks
+
+![SCENIC regulatory network inference in melanoma](figures/scenic-melanoma-regulatory-network.png)
+
+**Integration layers:**
+- SCENIC infers TF regulons from scRNA-seq
+- TF motifs predict regulatory targets
+- ATAC-seq validates chromatin accessibility
+
+**Question asked:** Which TFs regulate melanoma cell state transitions?
+
+::: notes
+True integration example using SCENIC to infer gene regulatory networks. Panel a: Regulon activity heatmap showing TF programs across melanoma cell states (Melanocytic, Intermediate, Mesenchymal), with DNA-binding motifs for key TFs. Panel b: UMAP based on regulon activities separates intermediate state, showing regulatory programs distinguish cell states. Panel c: ATAC-seq chromatin accessibility validates that predicted TFs have accessible binding sites in corresponding states. This demonstrates feature-centric analysis where multi-omics integration reveals regulatory mechanisms controlling phenotype switching, impossible from RNA or chromatin alone.
+:::
+
+---
+<!-- Begin slides not for review -->
+
 
 ## Challenges in Multi-omics Analysis
 
@@ -393,4 +394,6 @@ Common observations:
 ## Next Session
 
 **Session 2: **
+<!-- End slides not for review -->
+
 
