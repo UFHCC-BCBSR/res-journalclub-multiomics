@@ -1,0 +1,85 @@
+scenic-melanoma-regulatory-network.png
+Robust gene expression programs underlie recurrent cell states and phenotype switching in melanoma
+Single-cell network inference reveals candidate regulators of the intermediate state a, A selection of the regulons identified using SCENIC analysis (rows), and their activities in each cell (columns). For selected TFs, the DNA-binding motif (PWM) is shown, predicted by the RcisTarget step of SCENIC. b, A UMAP analysis on the basis of SCENIC regulons separates the intermediate from the other melanocytic cultures in an unsupervised manner. c, Chromatin accessibility, measured using ATAC-seq in the MM lines, established three clusters that correspond to the previously described cell states as well as nine clusters of genomic regions. For each cluster of regions, the enriched DNA-binding motifs and the associated TFs are indicated. The key in the bottom left applies to a–c.
+
+sample-focused-clustering.png
+Comprehensive multi-omics and machine learning framework for glioma subtyping and precision therapeutics
+Multi-omics clustering and survival analysis of glioma patients. (A) Integrated multi-omics clustering reveals distinct molecular subtypes based on mRNA, lncRNA, miRNA expression, DNA methylation, and mutation status. (B) Clustering consistency was assessed across ten different methods, with the top annotation representing the final consensus subtypes. (C) Consensus heatmap showing clustering stability of glioma patients across three subtypes. Darker colors indicate higher consensus scores. (D) Kaplan–Meier survival curves comparing overall survival between the molecular subtypes identified by consensus clustering.
+
+central-dogma-multilayer.png
+Toxicometabolomics: Small Molecules to Answer Big Toxicological Questions
+The central dogma of molecular biology and correspondence with ‘omics’ disciplines (adapted from [17]).
+
+cimp-colorectal.png
+Distinct features between MLH1-methylated and unmethylated colorectal carcinomas with the CpG island methylator phenotype: Implications in the serrated neoplasia pathway
+Schematic summary of this study. A. Distinct features and precursors of the MLH1-methylated and unmethylated CIMP-H CRCs. B. A molecular pathogenetic model of CIMP-H CRCs based on different serrated precursor pathways. Abbreviations: CIMP-H, CpG island methylator phenotype-high; MSI, microsatellite instability; MSI-H, MSI-high; MSI-L, MSI-low; MSS, microsatellite stable; MMR, DNA mismatch repair; dMMR, MMR-deficient; pMMR, MMR-proficient; BRAF mt , BRAF mutation or BRAF-mutated; KRAS mt , KRAS mutation or KRAS-mutated; APC mt , APC mutation; SSA/P, sessile serrated adenoma/polyp; TSA, traditional serrated adenoma; CIN, chromosomal instability.  
+
+cptac-her2-multilayer.png
+A pan-cancer proteomic perspective on The Cancer Genome Atlas
+a Histogram of Spearman’s rank correlation (ρ values) for 206 pairs of proteins and matched mRNAs across all tumor types. The black curve represents the background of ρ values using 28,960 random protein-mRNA pairs in the same dataset.
+b Crosstab identifying HER2-positive tumors by copy number, mRNA expression and protein expression across 11 tumor types. Cutoffs are defined in Methods. BRCA and UCEC are subdivided for clinical relevance regarding HER2 protein levels. Total sample numbers with analyses for all three platforms (CNV, mRNA and protein) are indicated in parentheses. Percentages ≥5% are highlighted (red).
+c Relationship between HER2 copy number and HER2 protein level by RPPA across all tumor types (n=2,479). The box represents the lower quartile, median and upper quartile, whereas the whiskers represent the most extreme data point within 1.5 × interquartile range from the edge of the box. Each point represents a sample, color-coded by tumor type or subtype. As expected, ERBB2 amplified samples have much higher HER2 protein levels than non-amplified samples.
+d Relationship between HER2 mRNA and protein expression across all tumor types (n=2,479). Each protein represents a sample, color-coded by tumor type or subtype. Spearman’s correlation between HER2 protein and mRNA is 0.53.
+
+epigenomics-assays.png
+https://geneviatechnologies.com/bioinformatics-analyses/epigenomics-data-analysis/
+Epigenomic assays
+High-throughput assays for epigenomic profiling are numerous, and new protocols are being developed continuously. The most common epigenomic assays focus on DNA methylation, DNA-binding proteins, histone modifications, chromatin accessibility or the 3D conformation of the chromatin.
+DNA methylation. DNA methylation assays based on bisuplhite-treated DNA enable identifying methylation events at the highest resolution. Such assays use next-generation sequencing (whole-genome or reduced representation bisulphite-sequencing) or microarrays. An alternative approach, MeDIP-sequencing, relies on immunoprecipitation and suffers from lower resolution. Of note, the long-read Oxford Nanopore sequencing technology enables detecting methylated CpGs directly.
+Transcription factor binding and histone modifications. Assays to identify DNA-bound proteins such as transcription factors, as well as chemical modifications to the histone proteins, make use of antibodies. ChIP-sequencing is the most common method, but newer alternatives with better resolution have been developed. These include ChIP-exo, Chipmentation, CUT&RUN and CUT&Tag.
+Chromatin accessibility. The gold standard assay for mapping regions of open chromatin is ATAC-sequencing. ATAC-seq has largely replaced previous methods such as DNase-seq and FAIRE-seq.
+Chromatin conformation. The importance of the chromatin's three-dimensional conformation has gained particular appreciation in the study of gene regulation, and it is also commonly employed in de novo genome assembly. Chromatin conformation assays can be used to study the physical interactions between genes and their distal regulatory elements as well as the proteins that cause such looping of the chromatin. Hi-C is a typical assay for the former, while ChIA-PET can be applied to the latter.
+To study the epigenome's direct effect on gene expression, epigenomic measurements are often complemented with RNA-sequencing experiments in the same setting.
+Single-cell experiments, particularly single-cell ATAC-sequencing, is increasingly performed as a co-assay with single-cell RNA-sequencing. This yields gene expression and chromatin accessibility profiles from the same individual cells.
+
+genomics-technologies.png
+Whole genome and exome sequencing reference datasets from a multi-center and cross-platform benchmark study
+Study design for the experiment. DNA was extracted from either fresh cells or FFPE processed cells. Both fresh DNA and FFPE DNA were profiled on WGS and WES platforms for intra-center, inter-center and cross-platform reproducibility benchmarking. For fresh DNA, six centers performed WGS and WES in parallel following manufacture recommended protocols with limited deviation. Three library preparation protocols (TruSeq-Nano, Nextera Flex, and TruSeq PCR-free,) were used with four different quantities of DNA inputs (1, 10, 100, and 250 ng). DNA from HCC1395 and HCC1395BL was pooled at various ratios to create mixtures of 75%, 50%, 20%, 10%, and 5%. For FFPE samples, each fixation time point (1h, 2 h, 6 h, 24 h) had six blocks that were sequenced at two different centers. All libraries from these experiments were sequenced on the HiSeq series. In addition, nine libraries using the TruSeq PCR-free preparation were run on a NovaSeq for WGS analysis.
+
+integration-approaches.png
+show directly
+
+metabolites-in-multiomes.png
+Mass-spectrometry based metabolomics: an overview of workflows, strategies, data analysis and applications
+Four major omics fields, from genomics, transcriptomics, proteomics and metabolomics. Metabolites like S-adenosyl methionine (SAM) and acetyl-CoA play important regulatory roles in epigenetic modifications (e.g. methylation, acetylation, respectively). TPP (Thiamine Pyrophosphate) is involved in riboswitch activation. Metabolites like SAM, lactate and acetyl-CoA are involved in post-translational modifications of proteins (e.g. methylation, lactylation and acetylation)
+
+metabolomics-workflow.png
+Application of Metabolomics in Fungal Research
+Figure 1. General technical route of metabolomics. Created with BioRender.com (accessed on 28 October 2022).
+
+multi-omics-overview.jpg
+Applications of multi-omics analysis in human diseases
+Multi-omics approaches in disease research. Here lists the currently main available methods for each omics. RNA-transcriptomics including next-generation sequencing (NGS), single-cell sequencing, and microRNA microarray. Proteins-proteomics including 2D differential gel electrophoresis (2D-DIGE), liquid chromatography-mass spectrometry (LC-MS), matrix-assisted laser desorption ionization time-of-F (MALDI-TOF-MS), tandem mass tag (TMT), and selected reaction monitoring (SRM). DNA-genomics and epigenomics including genome-wide association studies (GWAS), whole-exome sequencing (WES), next-generation sequencing (NGS), and single-cell sequencing. Images—radiomics including positron emission tomography (PET), magnetic resonance imaging (MRI), and computed tomography (CT). Metabolites—metabolomics including mass spectrometry and NMR spectroscopy. Microbe—microbiomics including 16S rRNA gene sequencing.
+
+multimodal-pancreatic-cancer.jpg
+Integrated spatial omics of metabolic reprogramming and the tumor microenvironment in pancreatic cancer
+graphic abstract, directly attach
+
+multimodal-study-example.jpg
+Spatial multiomics of the breast tumour microenvironment: State of the field, advancements and clinical implementation promises
+graphical abstract, directly attach screenshot of legend 
+
+multiomics-paradigms.png
+custom fig, directly attach
+
+pam50-breast-subtypes.png
+Comprehensive comparison of molecular portraits between cell lines and tumors in breast cancer
+Gene expression PAM50-breast cancer subtype classifications of cell lines and primary tumors for ER, PR, Her2 status. a The PAM50 subtype classification of 530 invasive breast cancer samples in TCGA, which uses AgilentG4502A_07_3 Array platform. b The PAM50 subtype classification of 56 breast cancer cell lines, which uses Affymetrix Human Genome U133 Plus 2.0 Array platform
+
+parallel-study-example-tcga.png
+Integrating immune multi-omics and machine learning to improve prognosis, immune landscape, and sensitivity to first- and second-line treatments for head and neck squamous cell carcinoma
+The research workflow.
+
+proteomics-platforms.png
+Mass-spectrometry-based proteomics: from single cells to clinical applications
+Fig. 1: Basic MS-based proteomics workflow, highlighting technological advances and Fig. 2: Single-cell and spatial proteomics.
+
+tcga-mutation-landscape.png
+Systematic pan-cancer analysis of mutation–treatment interactions using large real-world clinicogenomics data
+a, Number of patients with non-synonymous mutations in different genes. Color corresponds to the proportion of patients in each cancer with a given gene mutated (normalized per row). b, The breakdown of mutation subtypes of each gene across cancers. c, OS HR with two-sided Wald test P value <0.05 for individual genes are shown in the color scale. Genes that are not significantly associated with patient outcome are shown as a gray square.
+
+transcriptomics-technologies.png
+New review decodes transcriptomics: bulk vs. single-cell RNA sequencing
+The workflows of bulk RNA sequencing (RNA-seq) and single-cell RNA sequencing (scRNA-seq).
+Jorge A. Tzec-Interián 1, Daianna González-Padilla 2, Elsa B. Góngora-Castillo 3, †
+
