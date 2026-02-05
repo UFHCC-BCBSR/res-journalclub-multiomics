@@ -11,95 +11,130 @@ execute:
 
 ## Welcome to the Multi-Omics Integration Series
 
-In this foundational session, we will establish:
+This foundational session will establish:
 
-- Core concepts: What each omics layer measures and why it matters
-- Study design frameworks: Parallel vs joint profiling approaches  
-- Analytical paradigms: Sample-focused vs feature-focused integration
-- Key challenges that will frame upcoming speaker presentations
+- What each omics layer measures and why it matters
+- Study design frameworks: parallel vs joint profiling
+- Analytical paradigms: sample-focused vs feature-focused
+- Key challenges facing the field
 
-**Goal:** Prepare you to critically engage with cutting-edge multi-omics research from UF and external investigators.
+**Goal:** Prepare you to critically engage with upcoming speaker presentations.
 
 ---
 
 ## What Is Multi-Omics Integration?
 
-> **Multi-omics integration** combines measurements from multiple molecular layers of the same biological system to reveal regulatory relationships, functional states, and disease mechanisms invisible to single-layer analysis.
+> **Multi-omics integration** combines measurements from multiple molecular layers to reveal regulatory relationships and disease mechanisms invisible to single-layer analysis.
 
-**Central principle:** Biological regulation operates across molecular layers—each omics modality captures one view of this connected system.
+::: notes
+Each omics layer captures one view of a connected biological system. Integration attempts to recover relationships between layers to understand how regulation flows from genome through proteome to phenotype.
+:::
 
-![Conceptual overview of multi-omics data types](figures/multi-omics-overview.jpg)
+---
+
+## What Is Multi-Omics Integration?
+
+![](figures/multi-omics-overview.jpg)
+
+::: notes
+This figure shows the major omics modalities and their associated technologies. Each layer provides complementary information about the biological system.
+:::
 
 ---
 
 ## The Multi-Layered Biology of Cells
 
-![Multi-layer information flow from genome to metabolome](figures/central-dogma-multilayer.png)
+![](figures/central-dogma-multilayer.png)
 
-**Genome → Epigenome → Transcriptome → Proteome → Metabolome**
-
-- Each layer represents a different level of biological organization
-- Regulation flows across layers but is not strictly linear
-- Feedback loops and post-transcriptional control create complex layer-to-layer relationships
-
-**Why multi-omics?** Single-layer measurements answer "what is present?" Multi-omics answers "what is active, regulated, and functional?"
+::: notes
+Genome → Epigenome → Transcriptome → Proteome → Metabolome. Each layer represents a different level of biological organization. Regulation flows across layers but is not strictly linear - feedback loops and post-transcriptional control create complex layer-to-layer relationships. Single-layer measurements answer "what is present?" Multi-omics answers "what is active, regulated, and functional?"
+:::
 
 ---
 
 ## Genomics: The Blueprint
 
-**What it measures:** DNA sequence variation including germline and somatic mutations, copy number alterations, and structural rearrangements
+**What it measures:** DNA sequence variation
 
 **Common technologies:**
+
 - Whole-genome sequencing (WGS)
 - Whole-exome sequencing (WES)
-- Targeted gene panels
+- Targeted panels
 
-![Genomics technology comparison across platforms and study designs](figures/genomics-technologies.png)
+::: notes
+Genomics captures germline and somatic mutations, copy number alterations, and structural rearrangements. This is the "blueprint" layer.
+:::
 
 ---
 
-## Genomics: Mapping Drivers and Vulnerabilities
+## Genomics Technologies
 
-![TCGA pan-cancer mutation landscape](figures/tcga-mutation-landscape.png)
+![](figures/genomics-technologies.png)
 
-**Key insight:** Genomics identifies recurrent driver alterations across cancer types and reveals mutation mechanisms (point mutations, amplifications, deletions).
+::: notes
+Study design showing DNA extraction from fresh vs FFPE samples, multiple library prep protocols (TruSeq-Nano, Nextera Flex, PCR-free), various DNA input amounts (1-250 ng), and tumor-normal mixtures at different ratios. This demonstrates the technical considerations in genomics study design - sample quality, input requirements, and sequencing platforms all affect what questions you can ask.
+:::
 
-**What genomics tells us:**
-- Cancer susceptibility and clonal evolution
-- Targetable alterations and resistance mechanisms
+---
 
-**What it doesn't tell us:** Whether mutated pathways are transcriptionally active, whether proteins are expressed, or how the regulatory environment shapes phenotype.
+## Genomics: Mapping Drivers Across Cancers
 
-**Takeaway:** Genomics defines potential—integration with other layers reveals realized biology.
+![](figures/tcga-mutation-landscape.png)
+
+::: notes
+TCGA pan-cancer mutation landscape showing recurrent driver mutations across cancer types. Panel a: Number of patients with mutations in different genes, colored by proportion of patients in each cancer type. Panel b: Breakdown of mutation types (point mutations, amplifications, etc.). Panel c: Hazard ratios for overall survival associated with individual gene mutations.
+
+Key insight: Genomics identifies recurrent driver alterations and reveals mutation mechanisms. What genomics tells us: cancer susceptibility, clonal evolution, targetable alterations. What it doesn't tell us: whether mutated pathways are transcriptionally active, whether proteins are expressed, or how the regulatory environment shapes phenotype.
+
+Takeaway: Genomics defines potential—integration with other layers reveals realized biology.
+:::
 
 ---
 
 ## Epigenomics: The Regulatory Layer
 
-**What it measures:** Chromatin state and DNA modifications that control gene accessibility without altering DNA sequence
+**What it measures:** Chromatin state and DNA modifications controlling gene accessibility
 
 **Common technologies:**
-- ATAC-seq (chromatin accessibility)
-- ChIP-seq / CUT&RUN (transcription factor binding, histone modifications)
-- Bisulfite sequencing (DNA methylation: WGBS, RRBS)
 
-![Epigenomics assay types and their biological readouts](figures/epigenomics-assays.png)
+- ATAC-seq (chromatin accessibility)
+- ChIP-seq / CUT&RUN (TF binding, histone marks)
+- Bisulfite sequencing (DNA methylation)
+
+::: notes
+Epigenomics captures regulatory potential without altering DNA sequence. This layer determines which genes can be expressed.
+:::
 
 ---
 
-## Epigenomics: Mechanisms of Transcriptional Control
+## Epigenomics Assays
 
-![CpG island methylator phenotype in colorectal cancer](figures/cimp-colorectal.png)
+![](figures/epigenomics-assays.png)
 
-**Key insight:** DNA methylation at CpG islands can silence tumor suppressors independently of mutation, defining distinct molecular and clinical subtypes.
+::: notes
+Overview of epigenomic assay types and their biological readouts:
+- DNA methylation: bisulfite-seq (WGBS, RRBS), MeDIP-seq, direct detection with Oxford Nanopore
+- TF binding and histone modifications: ChIP-seq, ChIP-exo, Chipmentation, CUT&RUN, CUT&Tag
+- Chromatin accessibility: ATAC-seq (gold standard), DNase-seq, FAIRE-seq
+- Chromatin conformation: Hi-C, ChIA-PET for 3D interactions
 
-**What epigenomics tells us:**
-- Which genes are poised for expression vs silenced
-- Cell identity and lineage commitment
-- Regulatory mechanisms underlying phenotype switching
+Often complemented with RNA-seq to connect regulatory state to gene expression. Single-cell ATAC-seq increasingly performed with scRNA-seq as co-assay.
+:::
 
-**Takeaway:** Epigenomics reveals *regulatory potential*—which parts of the genome are accessible and how transcription factors can act. Integration with transcriptomics distinguishes potential from realized activity.
+---
+
+## Epigenomics: Methylation-Driven Cancer Subtypes
+
+![](figures/cimp-colorectal.png)
+
+::: notes
+CpG island methylator phenotype (CIMP) in colorectal cancer. Panel A: Distinct features of MLH1-methylated vs unmethylated CIMP-high CRCs, showing different precursor lesions (SSA/P vs TSA), mutation profiles (BRAF vs KRAS), and MMR status. Panel B: Molecular pathogenetic model showing how different serrated precursor pathways lead to CIMP-high CRCs.
+
+Key insight: DNA methylation at CpG islands can silence tumor suppressors independently of mutation, defining distinct molecular and clinical subtypes. What epigenomics tells us: which genes are poised for expression vs silenced, cell identity and lineage commitment, regulatory mechanisms underlying phenotype.
+
+Takeaway: Epigenomics reveals regulatory potential—which parts of the genome are accessible and how TFs can act. Integration with transcriptomics distinguishes potential from realized activity.
+:::
 
 ---
 
@@ -108,308 +143,372 @@ In this foundational session, we will establish:
 **What it measures:** RNA abundance reflecting active transcriptional programs
 
 **Common technologies:**
-- Bulk RNA-seq (population average)
-- Single-cell RNA-seq (cell-level resolution)
-- Spatial transcriptomics (tissue architecture)
 
-![Transcriptomics technology comparison](figures/transcriptomics-technologies.png)
+- Bulk RNA-seq
+- Single-cell RNA-seq
+- Spatial transcriptomics
+
+::: notes
+Transcriptomics captures which genes are actively being transcribed at the time of measurement.
+:::
 
 ---
 
-## Transcriptomics: Defining Cellular States and Subtypes
+## Transcriptomics Technologies
 
-![PAM50 breast cancer subtypes based on gene expression](figures/pam50-breast-subtypes.png)
+![](figures/transcriptomics-technologies.png)
 
-**Key insight:** Expression-based classification (PAM50) identifies breast cancer subtypes with distinct biology and clinical behavior, independent of receptor status alone.
+::: notes
+Workflows of bulk RNA-seq vs single-cell RNA-seq. Bulk provides population average across many cells. Single-cell reveals cell-level heterogeneity and rare populations. Key differences in library prep, sequencing depth requirements, and computational analysis.
+:::
 
-**What transcriptomics tells us:**
-- Active signaling pathways and regulatory programs
-- Cell states, heterogeneity, and tumor microenvironment composition
-- Molecular subtypes with therapeutic relevance
+---
 
-**Limitation:** RNA abundance ≠ protein abundance ≠ activity. Post-transcriptional regulation and protein stability decouple mRNA from functional output.
+## Transcriptomics: Expression-Based Subtypes
 
-**Takeaway:** Transcriptomics captures gene expression programs but requires integration with proteomics to understand functional consequences.
+![](figures/pam50-breast-subtypes.png)
+
+::: notes
+PAM50 breast cancer subtype classifications of cell lines (panel b) and primary tumors (panel a) for ER, PR, HER2 status. Expression-based classification identifies breast cancer subtypes (Luminal A, Luminal B, HER2-enriched, Basal-like) with distinct biology and clinical behavior, independent of receptor status alone.
+
+Key insight: Expression programs define molecular subtypes with therapeutic relevance. What transcriptomics tells us: active signaling pathways, cell states and heterogeneity, tumor microenvironment composition.
+
+Limitation: RNA abundance ≠ protein abundance ≠ activity. Post-transcriptional regulation and protein stability decouple mRNA from functional output.
+
+Takeaway: Transcriptomics captures gene expression programs but requires integration with proteomics to understand functional consequences.
+:::
 
 ---
 
 ## Proteomics: The Functional Machinery
 
-**What it measures:** Protein abundance, post-translational modifications, and interactions—the direct effectors of cellular function
+**What it measures:** Protein abundance, modifications, and interactions
 
 **Common technologies:**
-- Mass spectrometry–based proteomics (discovery, targeted)
+
+- Mass spectrometry-based proteomics
 - Antibody-based platforms (RPPA, CyTOF)
 
-![Proteomics workflow and technology platforms](figures/proteomics-platforms.png)
-
----
-
-## Proteomics: From Measurement to Clinical Action
-
-![HER2 assessment across genomic, transcriptomic, and proteomic layers](figures/cptac-her2-multilayer.png)
-
-**Key insight:** HER2 classification varies dramatically by layer. RNA-protein correlation is only 0.53. Samples classified as HER2-positive by protein may be negative by RNA or copy number.
-
-**What proteomics tells us:**
-- Functional protein levels for therapy decisions (e.g., anti-HER2 treatment)
-- Post-transcriptional regulation and protein stability effects
-- Discordance between genomic/transcriptomic potential and protein reality
-
-**Takeaway:** For many clinical decisions, protein measurement is essential. Discordance across layers motivates multi-omics integration to capture the full regulatory cascade from DNA → RNA → protein.
-
----
-
-## Metabolomics: Biochemical Activity and Regulation
-
-**What it measures:** Small molecules reflecting metabolic flux, enzymatic activity, and microenvironmental conditions
-
-**Common technologies:**
-- Liquid/gas chromatography coupled with mass spectrometry (LC-MS, GC-MS)
-- Targeted vs untargeted metabolomics
-- Nuclear magnetic resonance (NMR) spectroscopy
-
-![Metabolomics experimental workflow](figures/metabolomics-workflow.png)
-
----
-
-## Metabolomics: Connecting Metabolism to Regulation
-
-![Metabolites as regulatory molecules connecting omics layers](figures/metabolites-in-multiomes.png)
-
-**Key insight:** Metabolites are not just endpoints—they are regulatory signals. S-adenosylmethionine (SAM) drives DNA and histone methylation; acetyl-CoA enables histone acetylation; lactate modifies protein function.
-
-**What metabolomics tells us:**
-- How metabolic state regulates gene expression through epigenetic modifications
-- Phenotype-proximal biology (closer to observable disease than genomics)
-- Metabolic reprogramming in cancer and immune cells
-
-**Takeaway:** Metabolomics reveals bidirectional regulation: metabolism shapes epigenetics and protein function, creating feedback loops across omics layers. This motivates integrative analysis to capture systems-level regulation.
-
----
-
-## Two Paradigms for Multi-Omics Studies
-
-![Schematic showing parallel vs joint profiling multi-omics](figures/multiomics-paradigms.png)
-
-**Parallel Multi-Omics (Matched Samples):**
-- Multiple omics measured on the same samples (e.g., tumor aliquots)
-- Enables direct layer-to-layer correlation and integration
-- Examples: TCGA, CPTAC
-
-**Joint Profiling Multi-Omics:**
-- Multiple omics measured from the same cells or spatial locations
-- Requires specialized single-cell or spatial technologies
-- Examples: CITE-seq (scRNA + protein), 10X Multiome (scATAC + scRNA), spatial metabolomics + transcriptomics
-
-**Why this distinction matters:** Different technologies enable different biological questions and require different integration approaches.
-
----
-
-## Parallel Multi-Omics: Integrating Matched Tumor Profiles
-
-![TCGA-based study integrating genomics, transcriptomics, and outcomes](figures/parallel-study-example-tcga.png)
-
-**Study design:** Multi-platform profiling of the same tumor samples (WES, RNA-seq, methylation, proteomics) to link molecular alterations to clinical outcomes.
-
-**Key findings:** 
-- Mutation-expression relationships reveal functional consequences of genomic alterations
-- Multi-omics subtypes better predict treatment response than single-layer classification
-- Integration identifies which genomic drivers are transcriptionally/proteomically active
-
-**Takeaway:** Parallel multi-omics on matched samples enables direct integration across layers, revealing which molecular alterations drive phenotype and which are passenger events.
-
----
-
-## Joint Profiling Technologies: Single-Cell Multi-Omics
-
-| **Omics Combination** | **Example Technologies** |
-|----------------------|-------------|
-| Genome + Transcriptome | G&T-seq, SCTG, DR-seq, TARGET-seq, sci-L3-RNA/DNA, scONE-seq |
-| Epigenome + Transcriptome | scCAT-seq, sci-CAR, SNARE-seq, SHARE-seq, ASTAR-seq, Paired-Tag |
-| Transcriptome + Protein | REAP-seq, CITE-seq, ASAP-seq |
-| Transcriptome + CRISPR Perturbations | Perturb-seq, CROP-seq |
-| Epigenome + Protein | ICICLE-seq, ASAP-seq, PHAGE-ATAC |
-| Triple Modality | TEA-seq, DOGMA-seq (RNA + protein + chromatin) |
-
-**Advantage:** Eliminates batch effects and sample heterogeneity—all measurements from the same cells.
-
-**Emerging:** Spatial multi-omics maintains tissue architecture.
-
----
-
-## Joint Profiling: Spatial Multi-Omics of Breast Cancer
-
-![Spatial multiomics reveals tumor microenvironment organization](figures/multimodal-study-example.jpg)
-
-**Study design:** Spatial transcriptomics, proteomics, metabolomics, and epigenomics integrated with tissue architecture to map the breast tumor microenvironment.
-
-**Key findings:**
-- Spatially organized immune and stromal niches influence tumor evolution
-- Metabolic gradients within tumors drive spatially distinct transcriptional programs
-- Integration of modalities reveals cell-cell communication networks
-
-**Takeaway:** Joint spatial profiling reveals how molecular layers interact within tissue architecture—biology that parallel bulk approaches cannot capture. Clinical promise includes predicting therapy response based on spatial organization.
-
----
-
-## Joint Profiling: Metabolic Reprogramming in Pancreatic Cancer
-
-![Integrated spatial omics of metabolic reprogramming](figures/multimodal-pancreatic-cancer.jpg)
-
-**Study design:** Spatial metabolomics integrated with spatial transcriptomics and proteomics to map metabolic rewiring in pancreatic tumors.
-
-**Key findings (Panel A):** 
-- Serine/glycine metabolism enzymes (GLUL, GLS, ASNS) show spatially distinct expression in tumor vs stroma
-- Glutamate-derived pathways (GOT2, ALDH18A1) are heterogeneous within the tumor microenvironment
-
-**Key findings (Panels B-F):**
-- Sequential metabolic pathways mapped spatially: arginine → ornithine → polyamines
-- Enzyme expression (ASL, ASS1, ODC1, SRM, SMS) corresponds to metabolite spatial distribution
-- Integration reveals metabolic compartmentalization between tumor, stroma, and immune regions
-
-**Takeaway:** Spatial integration of metabolomics, transcriptomics, and proteomics maps metabolic reprogramming at cellular resolution. This reveals tumor-stroma metabolic crosstalk and identifies spatially restricted metabolic vulnerabilities for targeted therapy.
-
----
-
-## Integrative Analysis vs Meta-Analysis
-
-**Meta-analysis:**
-- Analyze each omics layer independently
-- Combine results post-analysis (e.g., pathway enrichment overlap)
-- Answers: "Do genomic and transcriptomic analyses independently support this pathway?"
-
-**Integrative analysis:**
-- Joint statistical modeling across omics layers
-- Leverages cross-layer structure during analysis (e.g., latent factor models, network inference)
-- Answers: "Which latent factors or regulatory networks explain coordinated variation across layers?"
-
-**Why this distinction matters:**
-- Integration can reveal cross-layer relationships invisible to separate analyses
-- But integration requires stronger assumptions and careful interpretation
-- Different methods suit different biological questions
-
----
-
-## Two Analytical Paradigms for Integration
-
-![Multi-omics integration strategies for different goals](figures/integration-approaches.png)
-
-::: {.columns}
-::: {.column width="50%"}
-**Sample-Focused Integration**
-- **Goal:** Group samples into subtypes
-- **Unit of analysis:** Patients/samples
-- **Output:** Molecular classifications
-- **Example:** Multi-omics cancer subtyping
-- **Methods:** Consensus clustering, similarity network fusion
+::: notes
+Proteomics measures the direct effectors of cellular function. Proteins are the functional molecules that carry out biological processes.
 :::
 
-::: {.column width="50%"}
-**Feature-Focused Integration**
-- **Goal:** Infer regulatory mechanisms
-- **Unit of analysis:** Genes, proteins, metabolites
-- **Output:** Networks, regulatory programs
-- **Example:** Multi-layer gene regulatory networks
-- **Methods:** Network inference, factor analysis
-:::
-:::
+---
+
+## Proteomics Platforms
+
+![](figures/proteomics-platforms.png)
 
 ::: notes
-The middle panel shows how omics layers contain within-layer relationships (nodes/edges within planes) and cross-layer relationships (dashed lines between planes). Sample-focused integration (bottom right: Classification) clusters samples based on multi-omics similarity, grouping patients into subtypes. Feature-focused integration (top right: Network) connects molecular features across layers to infer mechanisms, shown as networks with latent factors coordinating multiple molecules.
+Basic MS-based proteomics workflow showing sample prep, mass spectrometry analysis, and data processing. Figure also shows single-cell and spatial proteomics capabilities. Key technological advances include improved sensitivity for low-abundance proteins and spatial resolution.
 :::
 
 ---
 
-## Sample-Focused Integration: Molecular Subtyping
+## Proteomics: Layer-to-Layer Discordance
 
-![Multi-omics clustering identifies glioma subtypes with clinical relevance](figures/sample-focused-clustering.png)
+![](figures/cptac-her2-multilayer.png)
 
-**Analytical approach:** Consensus clustering integrating mRNA, lncRNA, miRNA, DNA methylation, and mutation profiles to classify glioma patients.
+::: notes
+HER2 assessment across genomic (copy number), transcriptomic (mRNA), and proteomic (protein) layers in CPTAC pan-cancer analysis. 
 
-**Key findings:**
-- Three molecular subtypes identified with distinct multi-omics signatures (panels A-C)
-- Subtypes show significantly different survival outcomes (panel D)
-- Integration provides stronger prognostic stratification than single-omics classification
+Panel a: Histogram showing Spearman correlation distribution for 206 protein-mRNA pairs - most show modest correlation.
 
-**Takeaway:** Sample-focused integration groups patients into clinically meaningful subtypes by leveraging complementary information across omics layers. This approach is critical for precision medicine—identifying which patients will benefit from specific therapies.
+Panel b: Crosstab showing HER2 classification by CNV, mRNA, and protein across 11 tumor types. Red highlighting shows ≥5% discordance. Breast (BRCA) and endometrial (UCEC) cancers subdivided by HER2 protein levels.
 
----
+Panel c: HER2 copy number vs protein level - amplified samples have higher protein but substantial variation exists.
 
-## Feature-Focused Integration: Regulatory Networks
+Panel d: HER2 mRNA vs protein correlation of only 0.53 across all tumors.
 
-![SCENIC infers TF regulatory networks from multi-omics data](figures/scenic-melanoma-regulatory-network.png)
+Key insight: HER2 classification varies dramatically by layer. Samples HER2-positive by protein may be negative by RNA or CNV. For anti-HER2 therapy decisions, protein measurement is essential.
 
-**Analytical approach:** SCENIC integrates scRNA-seq with TF motif analysis and ATAC-seq chromatin accessibility to infer gene regulatory networks governing melanoma cell states.
-
-**Key findings:**
-- **Panel a:** Regulon activity heatmap reveals TF programs distinguishing melanocytic, intermediate, and mesenchymal states
-- **Panel b:** UMAP based on regulon activities (not genes) separates intermediate state—regulatory programs define cell identity
-- **Panel c:** ATAC-seq validates that predicted TF binding sites are accessible in the corresponding cell states
-
-**Takeaway:** Feature-focused integration identifies *mechanisms*—which transcription factors regulate cell state transitions and how chromatin accessibility enables this regulation. This analysis reveals the regulatory logic connecting epigenomics to transcriptomics, impossible to capture from either layer alone.
+Takeaway: Discordance across layers motivates multi-omics integration to capture the full regulatory cascade from DNA → RNA → protein. Post-transcriptional regulation and protein stability create layer-specific biology.
+:::
 
 ---
 
-## Challenges in Multi-Omics Integration
+## Metabolomics: Biochemical Activity
 
-Having established what multi-omics can reveal, we now consider practical challenges that shape study design and interpretation—challenges that our upcoming speakers will address in their research.
+**What it measures:** Small molecules reflecting metabolic flux and enzymatic activity
 
-**Key challenges:**
+**Common technologies:**
 
-1. **Layer-to-layer discordance** is often the biological signal, not measurement error
-2. **Missing data** across layers complicates integration and forces modeling assumptions
-3. **Batch effects and technical variation** differ across platforms
-4. **Interpretability** decreases as model complexity increases
+- LC-MS / GC-MS
+- Targeted vs untargeted approaches
+- NMR spectroscopy
+
+::: notes
+Metabolomics captures the biochemical endpoint of cellular processes. Metabolites are closest to phenotype in the omics hierarchy.
+:::
 
 ---
 
-## Discordance Across Layers: Signal or Noise?
+## Metabolomics Workflow
+
+![](figures/metabolomics-workflow.png)
+
+::: notes
+General technical route of metabolomics: sample collection and preparation, metabolite extraction, separation (chromatography), detection (mass spectrometry or NMR), data processing (peak detection, identification, quantification), and statistical analysis. Quality control is critical at each step.
+:::
+
+---
+
+## Metabolomics: Regulatory Connections
+
+![](figures/metabolites-in-multiomes.png)
+
+::: notes
+Metabolites as regulatory molecules connecting omics layers. S-adenosylmethionine (SAM) drives DNA and histone methylation (epigenomics). Acetyl-CoA enables histone acetylation (epigenomics). Thiamine pyrophosphate (TPP) is involved in riboswitch activation (transcriptomics). SAM, lactate, and acetyl-CoA drive post-translational modifications of proteins (proteomics).
+
+Key insight: Metabolites are not just endpoints—they are regulatory signals that directly control gene expression and protein function.
+
+What metabolomics tells us: how metabolic state regulates epigenetics and protein function, phenotype-proximal biology (closer to observable disease than genomics), metabolic reprogramming in cancer and immune cells.
+
+Takeaway: Metabolomics reveals bidirectional regulation—metabolism shapes epigenetics and protein function, creating feedback loops across omics layers. This motivates integrative analysis to capture systems-level regulation.
+:::
+
+---
+
+## Two Multi-Omics Study Paradigms
+
+![](figures/multiomics-paradigms.png)
+
+::: notes
+Left: Parallel multi-omics (matched samples) - Multiple omics measured on the same samples (e.g., tumor aliquots). Enables direct layer-to-layer correlation. Examples: TCGA (WES + RNA-seq + methylation + proteomics), CPTAC (genomics + proteomics), clinical trials with multi-omic profiling.
+
+Right: Joint profiling multi-omics - Multiple omics from the same cells or spatial locations. Requires specialized technologies. Examples: CITE-seq (scRNA + protein), 10X Multiome (scATAC + scRNA), spatial methods (Xenium/CODEX for RNA + protein, PacBio HiFi for DNA + methylation).
+
+Why this distinction matters: Different technologies enable different biological questions and require different integration approaches. Parallel studies can have batch effects between platforms but measure larger sample sizes. Joint profiling eliminates batch effects but is technically more challenging.
+:::
+
+---
+
+## Parallel Multi-Omics Study Example
+
+![](figures/parallel-study-example-tcga.png)
+
+::: notes
+Research workflow showing integrative multi-omics and machine learning approach for head and neck squamous cell carcinoma. Study integrated genomics, transcriptomics, and clinical data to improve prognosis prediction and identify treatment-relevant biomarkers.
+
+Key finding: Multi-omics integration provides better prognostic stratification than single-omics analysis. Machine learning models trained on integrated data showed improved prediction of first- and second-line treatment response. Integration reveals which genomic drivers are transcriptionally active and clinically consequential.
+
+Takeaway: Parallel multi-omics on matched samples enables direct integration across layers, revealing which molecular alterations drive phenotype and which are passenger events. This approach is powerful for biomarker discovery and patient stratification.
+:::
+
+---
+
+## Joint Profiling: Single-Cell Multi-Omics
+
+| **Omics Combination** | **Technologies** |
+|----------------------|-------------|
+| Genome + Transcriptome | G&T-seq, TARGET-seq, sci-L3 |
+| Epigenome + Transcriptome | sci-CAR, SNARE-seq, SHARE-seq |
+| Transcriptome + Protein | CITE-seq, REAP-seq, ASAP-seq |
+| Triple Modality | TEA-seq, DOGMA-seq |
+
+**Advantage:** All measurements from the same cells
+
+::: notes
+Joint profiling eliminates batch effects and sample heterogeneity by measuring multiple omics from individual cells. This table shows representative technologies for different omics combinations. The field is rapidly evolving with new methods published regularly. Spatial multi-omics is an emerging area that maintains tissue architecture while measuring multiple modalities.
+:::
+
+---
+
+## Joint Profiling: Spatial Multi-Omics
+
+![](figures/multimodal-study-example.jpg)
+
+::: notes
+Spatial omics of the breast tumor microenvironment. Background: Spatial omics has transformed understanding of breast TME, but clinical validation remains limited.
+
+Left panel: Throughput vs resolution tradeoff for different spatial technologies (transcriptomics, proteomics, multi-omics). 
+
+Center panel: Schematic showing tumor organization - metabolic niches, immune ecosystem (ignored, inflamed, excluded tumor regions), clonal architecture, polyclonal metastases, blood vessels, and stroma ecosystem.
+
+Right panel: Heatmap showing method compatibility across clinical applications (early diagnosis, FFPE support, subcellular resolution, biomarker discovery).
+
+Main findings: Spatial multiomics uncovers how spatially organized immune and stromal niches influence tumor evolution and therapy response. Integration of transcriptomic, proteomic, metabolomic and epigenomic advances within a translational framework. Key technological and analytical gaps limit clinical implementation.
+
+Takeaway: Joint spatial profiling reveals how molecular layers interact within tissue architecture—biology that parallel bulk approaches cannot capture. Clinical promise includes predicting therapy response based on spatial organization, but technological barriers remain.
+:::
+
+---
+
+## Joint Profiling: Spatial Metabolomics
+
+![](figures/multimodal-pancreatic-cancer.jpg)
+
+::: notes
+Integrated spatial omics of metabolic reprogramming in pancreatic cancer. Study integrated spatial metabolomics with spatial transcriptomics and proteomics to map metabolic rewiring.
+
+Panel A: Spatial maps of metabolites (histidine, glutamine, asparagine, alanine, glycine, serine, proline, cystathionine) showing distinct distributions. UMAP plots and violin plots for key enzymes (GLUL, GLS, ASNSD1, GPT, GOT2, ALDH18A1, PYCR1, PRODH2, PSAT1, PSPH, SHMT2) showing expression in malignant vs normal vs stroma vs immune regions. Color gradients show mass intensity (blue=low, red=high) and gene expression levels.
+
+Panels B-F: Sequential metabolic pathways mapped spatially:
+- Arginine → ornithine (via ASL, ARG1) → citrulline (via OTC)
+- Ornithine → putrescine (via ODC1) → spermidine/spermine (via SRM, SMS)
+- Glutamate → ornithine (via OAT)
+- Proline → putrescine (via multiple steps)
+- N1-acetylspermidine formation (via SAT1, PAOX)
+
+Each panel shows spatial maps of metabolites and corresponding enzyme expression (spatial plots + UMAP plots), revealing compartmentalization between tumor, stroma, and immune regions.
+
+Key insight: Serine/glycine metabolism, glutamate-derived pathways, and polyamine synthesis show spatially distinct patterns. Enzyme expression corresponds to metabolite spatial distribution, revealing metabolic compartmentalization and tumor-stroma metabolic crosstalk.
+
+Takeaway: Spatial integration of metabolomics, transcriptomics, and proteomics maps metabolic reprogramming at cellular resolution. This identifies spatially restricted metabolic vulnerabilities for targeted therapy.
+:::
+
+---
+
+## Two Analytical Paradigms
+
+![](figures/integration-approaches.png)
+
+::: notes
+Left panel: Individual omics types (genomics, epigenomics, transcriptomics, proteomics, metabolomics).
+
+Middle panel: Multi-omics integration showing within-layer relationships (nodes and edges within each plane) and cross-layer relationships (dashed lines between planes).
+
+Right panel: Two types of insights from integration:
+- Network (top): Feature-focused integration connects molecular features across layers to infer mechanisms (eigen factor coordinating multiple molecules)
+- Classification (bottom): Sample-focused integration clusters samples based on multi-omics similarity (blue vs brown patient groups)
+- Biomarker (bottom): Shows complexity gradient from genome through proteome
+
+Sample-focused integration: Groups samples into subtypes based on molecular similarity across layers. Unit of analysis is patients/samples. Output is molecular classifications. Example: multi-omics cancer subtyping. Methods include consensus clustering, similarity network fusion.
+
+Feature-focused integration: Infers regulatory mechanisms by connecting molecular features across layers. Unit of analysis is genes, proteins, metabolites. Output is networks and regulatory programs. Example: multi-layer gene regulatory networks. Methods include network inference, factor analysis.
+:::
+
+---
+
+## Sample-Focused: Molecular Subtyping
+
+![](figures/sample-focused-clustering.png)
+
+::: notes
+Multi-omics clustering and survival analysis of glioma patients.
+
+Panel A: Integrated multi-omics clustering using mRNA, lncRNA, miRNA expression, DNA methylation, and mutation status. Heatmap shows molecular features across patients with subtype annotations.
+
+Panel B: Clustering consistency assessed across ten different methods. Top annotation shows final consensus subtypes. Demonstrates robustness of subtype assignments.
+
+Panel C: Consensus heatmap showing clustering stability across three subtypes. Darker colors indicate higher consensus scores - samples consistently cluster together.
+
+Panel D: Kaplan-Meier survival curves comparing overall survival between molecular subtypes. Subtypes show significantly different outcomes (p-values indicated).
+
+Analytical approach: Consensus clustering integrating multiple omics layers to classify glioma patients. Key finding: Three molecular subtypes identified with distinct multi-omics signatures and significantly different survival outcomes. Integration provides stronger prognostic stratification than single-omics classification.
+
+Takeaway: Sample-focused integration groups patients into clinically meaningful subtypes by leveraging complementary information across omics layers. Critical for precision medicine—identifying which patients will benefit from specific therapies.
+:::
+
+---
+
+## Feature-Focused: Regulatory Networks
+
+![](figures/scenic-melanoma-regulatory-network.png)
+
+::: notes
+SCENIC regulatory network inference in melanoma cell state transitions. Integration of scRNA-seq with TF motif analysis and ATAC-seq chromatin accessibility.
+
+Panel a: Regulon activity heatmap showing TF programs (rows) across individual cells (columns). Cells are from melanocytic, intermediate (INT), and mesenchymal-like (MES) cultures. For selected TFs, DNA-binding motifs (PWMs) are shown, predicted by RcisTarget step of SCENIC. Color shows regulon activity.
+
+Panel b: UMAP based on SCENIC regulons (not raw gene expression) separates intermediate state from other melanocytic cultures in an unsupervised manner. Shows that regulatory programs, not just expression levels, define cell identity.
+
+Panel c: Chromatin accessibility measured by ATAC-seq in melanoma cell lines. Heatmap shows three clusters of cell states corresponding to melanocytic, intermediate, and mesenchymal. Nine clusters of genomic regions identified. For each region cluster, enriched DNA-binding motifs and associated TFs are indicated. Validates that predicted TF binding sites are accessible in the corresponding cell states.
+
+Analytical approach: SCENIC infers TF regulons from scRNA-seq, predicts regulatory targets using motif analysis, validates with ATAC-seq. Question asked: Which TFs regulate melanoma cell state transitions?
+
+Key finding: Distinct TF programs control melanocytic, intermediate, and mesenchymal states. Regulon activities separate cell states better than gene expression alone. Chromatin accessibility confirms predicted TF binding sites are open in corresponding states.
+
+Takeaway: Feature-focused integration identifies mechanisms—which transcription factors regulate cell state transitions and how chromatin accessibility enables this regulation. This analysis reveals the regulatory logic connecting epigenomics to transcriptomics, impossible to capture from either layer alone.
+:::
+
+---
+
+## Integrative vs Meta-Analysis
+
+**Meta-analysis:**
+
+- Analyze each layer independently
+- Combine results post-analysis
+- Example: pathway enrichment overlap
+
+**Integrative analysis:**
+
+- Joint statistical modeling across layers
+- Leverages cross-layer structure
+- Example: latent factor models
+
+::: notes
+Meta-analysis answers: "Do genomic and transcriptomic analyses independently support this pathway?" Integrative analysis answers: "Which latent factors or regulatory networks explain coordinated variation across layers?"
+
+Why this matters: Integration can reveal cross-layer relationships invisible to separate analyses, but requires stronger assumptions and careful interpretation. Different methods suit different biological questions. Integration is not just stacking plots.
+:::
+
+---
+
+## Key Challenges in Multi-Omics
+
+- **Discordance across layers** is often biological signal, not noise
+- **Missing data** differs by platform and layer
+- **Batch effects** vary across technologies
+- **Interpretability** vs model complexity tradeoffs
+
+::: notes
+These challenges will be central themes in upcoming speaker presentations. Each investigator addresses these issues differently based on their biological question and available data. Understanding these challenges prepares you to critically evaluate multi-omics methods and results.
+:::
+
+---
+
+## Challenge: Layer-to-Layer Discordance
 
 **Common observations:**
-- RNA–protein correlation is often modest (ρ ~ 0.4–0.6)
-- Open chromatin without gene expression
-- Metabolic shifts without transcriptional changes
 
-**Critical reframing:**
-> Disagreement across omics layers is often the biological signal—revealing post-transcriptional regulation, protein stability effects, and metabolic control of gene expression.
+- RNA–protein correlation often modest (ρ ~ 0.4–0.6)
+- Open chromatin without expression
+- Metabolic changes without transcriptional shifts
 
-**Example revisited:** HER2 protein positivity without RNA overexpression indicates post-transcriptional or protein stability mechanisms, creating distinct therapeutic vulnerabilities.
+> Disagreement across layers often reveals post-transcriptional regulation, protein stability, and metabolic control.
 
-**Implication:** Integration methods must distinguish biological discordance from technical noise.
-
----
-
-## Missing Data in Multi-Omics
-
-**Types of missingness:**
-- **Missing by design:** Not all samples profiled on all platforms (cost, sample limitations)
-- **Missing not at random:** Low-abundance proteins/metabolites drop out; depends on biology
-- **Platform-specific dropout:** Single-cell RNA-seq has high zeros; proteomics misses low-abundance proteins
-
-**Why missingness matters:**
-- Breaks naïve integration methods (e.g., correlation-based approaches)
-- Requires careful imputation or missingness-aware models
-- Limits interpretation: Is a feature absent or undetected?
-
-**Takeaway:** Missing data is a fundamental challenge in multi-omics. Upcoming speakers will discuss how they address missingness in their integration workflows.
+::: notes
+Example: HER2 protein positivity without RNA overexpression indicates post-transcriptional or protein stability mechanisms, creating distinct therapeutic vulnerabilities. Integration methods must distinguish biological discordance from technical noise. This is a feature, not a bug—the discordance tells us about regulatory mechanisms.
+:::
 
 ---
 
-## Preparing for the Multi-Omics Integration Series
+## Challenge: Missing Data
 
-**What we've established today:**
-- Each omics layer captures a distinct biological view—integration is required to understand regulation and function
-- Study design choices (parallel vs joint profiling) shape biological questions and analytical approaches
-- Analytical paradigms (sample-focused vs feature-focused) serve different goals: classification vs mechanism
-- Challenges like layer-to-layer discordance and missing data are inherent to multi-omics biology
+**Types:**
 
-**Looking ahead in this series:**
-- UF and external researchers will present cutting-edge multi-omics methods and applications
-- You'll see how investigators address the challenges discussed today in real-world contexts
-- We'll explore advanced integration methods, single-cell/spatial multi-omics, and clinical translation
+- Missing by design (not all samples on all platforms)
+- Missing not at random (low-abundance dropout)
+- Platform-specific (scRNA-seq zeros, proteomics detection limits)
 
-**Questions to carry forward:** How do we distinguish biological signal from technical noise across layers? When should we integrate vs analyze separately? How do we make multi-omics findings actionable?
+**Impact:** Breaks naïve integration, requires careful modeling
+
+::: notes
+Missing data is fundamental in multi-omics. Cost and sample limitations mean not all samples are profiled on all platforms. Low-abundance molecules drop out in a biology-dependent manner. Single-cell RNA-seq has high zero rates. Proteomics misses low-abundance proteins.
+
+Why this matters: Breaks correlation-based integration approaches. Requires careful imputation or missingness-aware models. Limits interpretation—is a feature absent or undetected? Upcoming speakers will discuss how they address missingness in their workflows.
+:::
+
+---
+
+## Preparing for Upcoming Sessions
+
+**What we've established:**
+
+- Each omics layer provides a distinct biological view
+- Study design (parallel vs joint) shapes questions and methods
+- Analysis paradigm (sample vs feature-focused) serves different goals
+- Challenges are inherent to multi-omics biology
+
+**Looking ahead:**
+
+UF and external researchers will present methods addressing these challenges in cancer, immunology, and spatial biology contexts.
+
+::: notes
+Questions to carry forward: How do we distinguish biological signal from technical noise across layers? When should we integrate vs analyze separately? How do we make multi-omics findings actionable in clinical settings? These questions will frame your engagement with upcoming speakers as they present their research approaches and findings.
+:::
 
 ---
 
